@@ -21,16 +21,21 @@ class dashboard extends boxController {
 
 
 //GLOBAL SEQUENCER START BUTTON
-        var startSequencerButton = document.createElement('button');
+        var startSequencerButton = document.createElement('i');
+        startSequencerButton.className += 'startSeq material-icons'
+        startSequencerButton.textContent = 'input';
+        startSequencerButton.setAttribute('title', 'start');
 
-        startSequencerButton.className = 'startSeq'
-        startSequencerButton.textContent = 'start';
-        var stopSequencerButton = document.createElement('button');
+        var stopSequencerButton = document.createElement('i');
+        stopSequencerButton.className += 'stopSeq material-icons'
+        stopSequencerButton.textContent = 'portable_wifi_off';
+        stopSequencerButton.setAttribute('title', 'stop');
 
-        stopSequencerButton.className = 'stopSeq'
-        stopSequencerButton.textContent = 'stop';
         dashboardWorkspace.appendChild(startSequencerButton);
         dashboardWorkspace.appendChild(stopSequencerButton);
+        /*document.getElementById('menu').appendChild(startSequencerButton);
+        document.getElementById('menu').appendChild(stopSequencerButton);*/
+
         startSequencerButton.onclick = function () {
             var allStartButtons = document.getElementsByClassName('startSeq');
             for (var startButton in allStartButtons) {

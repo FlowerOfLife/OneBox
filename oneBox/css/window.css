@@ -114,6 +114,33 @@ body {
     cursor: move;
 }
 
+#menu{
+    width: 30px;
+    opacity: 0;
+     -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -ms-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 0.432s ease-in-out;
+}
+#menu:hover{
+    opacity: 1;
+
+}
+
+
+.material-icons{
+    clear: both;
+    float: left;
+    cursor: pointer;
+    color: rgb(21, 183, 168) !important;
+    font-size: 40px !important;
+}
+.material-icons:hover{
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+
  svg path {
   stroke:rgb(174, 129, 255);
 }
