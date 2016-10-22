@@ -1,0 +1,183 @@
+<html>
+
+<head>
+  <script type="text/javascript" src="./js/mml.js"></script>
+
+  <script src="js/nexusUI.js"></script>
+  <script>
+
+    var audioContext = new AudioContext()
+
+
+  function play (freq) {
+    //
+    var startTime = audioContext.currentTime;
+    var duration = 0.5; //sastain  destain
+    var endTime = startTime + duration
+
+    var envelope = audioContext.createGain()
+    envelope.connect(audioContext.destination)
+    envelope.gain.value = 0
+    envelope.gain.setTargetAtTime(1, startTime, 0.1)
+    envelope.gain.setTargetAtTime(0, endTime, 0.2)
+
+    var oscillator = audioContext.createOscillator()
+    oscillator.connect(envelope)
+    //console.log(matrixCol)
+    if(typeof(freq)!="number"){
+      freq = 1
+    }
+    oscillator.frequency.value = freq;
+    oscillator.type = 'sawtooth'
+    var pitch=3
+    oscillator.detune.value = pitch * 100
+
+    var vibrato = audioContext.createGain()
+
+    vibrato.gain.value = 30
+    vibrato.connect(oscillator.detune)
+
+    var lfo = audioContext.createOscillator()
+    lfo.frequency.value = 5
+    lfo.connect(vibrato)
+    lfo.start(startTime)
+
+
+
+
+keyDown()
+keyUp()
+    function keyDown(){
+oscillator.start(startTime)
+    }
+
+      function keyUp(){
+  oscillator.stop(endTime + 2)
+    }
+
+  }
+
+        /****************
+         *  THE NEXUSUI  *
+         ****************/
+
+
+        nx.onload = function() {
+          matrix1.col = 16;
+         matrix1.row = 16;
+    matrix1.init()
+            matrix1.on('*', function(data) {
+  console.log(data.list)
+    if(data.list){
+
+for(var i=0;i<16;i++){
+  (function(i){
+    if(data.list[i]==1){
+  play(20*i)
+    }
+  })(i)
+
+}
+
+/*
+let mml = "t200 o6 l8 e g > e c d g";
+let config = { context: audioContext };
+let mmlEmitter = new MMLEmitter(mml, config);
+
+mmlEmitter.on("note", (e) => {
+  console.log("NOTE: " + JSON.stringify(e));
+});
+mmlEmitter.on("end:all", (e) => {
+  console.log("END : " + JSON.stringify(e));
+  mmlEmitter.stop();
+});
+
+mmlEmitter.start();
+*/
+/*
+
+
+
+
+      if(data.list[0]==1){
+    play(0, 3, 0.5,400)
+      }
+
+
+      if(data.list[1]==1){
+    play(0, 3, 0.5,500)
+      }
+
+
+      if(data.list[2]==1){
+    play(0, 3, 0.5,600)
+      }
+
+
+      */
+}
+
+            //   matrix1.jumpToCol(this.playnow)
+            })
+
+            metro1.on('*', function(data) {
+
+              if(typeof(this.playnow)!="number"){
+                this.playnow = 1
+              }else{
+                console.log(this.playnow )
+                this.playnow = nextCol(this.playnow,16,0)
+              }
+            //  console.log(this.playnow,333)
+
+              matrix1.jumpToCol(this.playnow);
+        //        console.log(data)
+            })
+
+
+  metro1.speed=(30);
+
+            function nextCol(cur,end){
+              cur=cur+1;
+              if(cur==end){
+                return 0
+              }else{
+                return cur
+              }
+            }
+
+        }
+
+
+function metron(){
+
+}
+
+function sequencer(){
+var rows;
+var cols;
+var input;
+var cc_in;
+
+
+
+
+}
+
+function synth(){
+  function osc(){
+
+  }
+
+}
+
+
+    </script>
+</head>
+
+<body>
+  <canvas nx="metro"></canvas>
+  <canvas nx="matrix" width="550px" height="300px"></canvas>
+</body>
+
+</html>

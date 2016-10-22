@@ -1,0 +1,52 @@
+'use strict'
+class myMenu {
+    constructor() {
+        // this.menuObject()
+    }
+    menuObject() {
+        var menuItems = ['osc', 'dashboard', 'visualiser', 'gain', 'knob', 'keyboard', 'mml','audioDestination','envelope','piano','simpleSequencer','drums','filter','buffer'];
+        var dashboardMenu = document.createElement('div');
+        //div menu
+        var menuDiv = document.createElement('div');
+        menuDiv.id = 'menu'
+        dashboardMenu.appendChild(menuDiv)
+        for (var items in menuItems) {
+            (function (items) {
+
+
+                //menu button
+                var addButton = document.createElement('button');
+                addButton.id = menuItems[items] + 'button';
+                addButton.innerHTML = menuItems[items];
+
+                menuDiv.appendChild(addButton)
+                addButton.onclick = function () {
+                    var deviceJsonObject = (menuItems[items] + Math.floor((Math.random() * 100000) + 1))
+                    var deviceValues = {
+                        name: deviceJsonObject,
+                        type: menuItems[items],
+                        parentBox: this.parentElement.parentElement.parentElement,
+                        position: {
+                            sdkTop: '10px',
+                            sdkLeft: '10px',
+                            guiTop: '10px',
+                            guiLeft: '10px'
+                        },
+
+                        currentView: 'sdk'
+                    }
+
+                    var device = eval('new ' + menuItems[items] + "('" + deviceJsonObject + "')");
+                    device.initBoxValues(deviceValues)
+                    device.setParentBox(this.parentElement.parentElement.parentElement);
+
+                    device.createBox();
+                    window[device.getName()+"Box"] = device
+                }
+            })(items)
+
+        }
+
+        return dashboardMenu
+    }
+}

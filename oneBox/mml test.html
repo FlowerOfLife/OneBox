@@ -1,0 +1,185 @@
+<script type="text/javascript" src="./js/mml.js"></script>
+ <script src="js/nexusUI.js"></script>
+  <script src="js/qwerty-hancock.js"></script>
+<canvas nx="keyboard"></canvas>
+   	<html>
+	<head>
+		<title>NexusUI Demo</title>
+		  <div id="keyboard"></div>
+		<script>
+    var keyboard = new QwertyHancock({
+                     id: 'keyboard',
+                     width: 600,
+                     height: 150,
+                     octaves: 2,
+                     startNote: 'A3',
+                     whiteNotesColour: 'white',
+                     blackNotesColour: 'black',
+                     hoverColour: '#f3e939'
+                });
+
+  var audioContext = new AudioContext()
+//var playn = new play(400)
+    keyboard.keyDown = function (note, frequency) {
+        // Your code here
+        console.log(note, frequency)
+        play(frequency,true)
+    };
+
+    keyboard.keyUp = function (note, frequency) {
+        console.log(note, frequency)
+          play(frequency,false)
+    };
+
+
+           envelope = audioContext.createGain()
+          envelope.connect(audioContext.destination)
+          var vibrato = audioContext.createGain()
+
+
+
+          var lfo = audioContext.createOscillator()
+          lfo.frequency.value = 5
+          lfo.connect(vibrato)
+          lfo.start(audioContext.currentTime)
+oscillator=''
+    function play (freq,up) {
+      //
+
+      var startTime = audioContext.currentTime;
+      var duration =  0.5; //sastain  destain
+      var endTime = startTime + duration
+      oscillator = audioContext.createOscillator()
+      oscillator.frequency.value = freq;
+      oscillator.type = 'sawtooth'
+      vibrato.gain.value = 30
+      vibrato.connect(oscillator.detune)
+
+
+  if(up==true){
+
+      oscillator.connect(envelope)
+
+      //console.log(matrixCol)
+      if(typeof(freq)!="number"){
+        freq = 1
+      }
+
+      var pitch=3
+      oscillator.detune.value = pitch * 100
+
+
+
+  console.log('start');
+    oscillator.start()
+  envelope.gain.setTargetAtTime(1.0,  audioContext.currentTime, 1)
+
+}else{
+  console.log('stop');
+  envelope.gain.setTargetAtTime(0,  audioContext.currentTime, 1)
+  //envelope.gain.value = 0
+ oscillator.stop( audioContext.currentTime+1)
+}
+
+
+  //this.keyDown()
+  //this.keyUp()
+
+    }
+
+
+    /*
+			nx.onload = function() {
+
+			    nx.colorize("accent", "#347");
+			    nx.colorize("border", "#bbb");
+			    nx.colorize("fill", "#eee");
+			    keyboard1.octaves = 3;
+			    keyboard1.init()
+
+				for (var key in nx.widgets) {
+					nx.widgets[key].on('*', function(data) {
+						var d = document.getElementById("tester");
+						d.innerHTML = data.midi + "<br>" + d.innerHTML
+					})
+				}
+				var notes = [0,2,4,5,7,9,11];
+				for (i=0; i<notes.length; i++) {
+					keyboard1.toggle( keyboard1.keys[ notes[i] ], true );
+				}
+
+			}
+*/
+
+		</script>
+	</head>
+
+	<body>
+
+
+
+
+
+	</body>
+
+</html>
+<script>
+
+
+/*
+
+			nx.onload = function() {
+
+			    nx.colorize("accent", "#347");
+			    nx.colorize("border", "#bbb");
+			    nx.colorize("fill", "#eee");
+			    keyboard1.octaves = 3;
+			    keyboard1.init()
+
+				for (var key in nx.widgets) {
+					nx.widgets[key].on('*', function(data) {
+						var d = document.getElementById("tester");
+						d.innerHTML = data.midi + "<br>" + d.innerHTML
+					})
+				}
+				var notes = [0,2,4,5,7,9,11];
+				for (i=0; i<notes.length; i++) {
+					keyboard1.toggle( keyboard1.keys[ notes[i] ], true );
+				}
+
+
+
+
+playMMl("t200 o6 l8 e g > e c d g");
+
+function playMMl(){
+let mml = "t200 o6 l8 e g > e c d g";
+//let config = { context: audioContext };
+let mmlEmitter = new MMLEmitter(mml);
+
+mmlEmitter.on("note", (e) => {
+    var myNote = JSON.stringify(e);
+    var frq = nx.mtof(e.noteNumber);
+    var velocity = e.velocity
+  console.log("NOTE: " + JSON.stringify(e), nx.mtof(e.noteNumber));
+
+});
+
+mmlEmitter.on("end:all", (e) => {
+  console.log("END : " + JSON.stringify(e));
+  mmlEmitter.stop();
+});
+
+mmlEmitter.start();
+}
+
+			}
+
+*/
+
+
+
+
+
+
+</script>

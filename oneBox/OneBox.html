@@ -1,0 +1,254 @@
+<script src="js/jsPlumb-2.1.7.js"></script>
+<script src="js/jquery-1.12.0.js"></script>
+<script src="js/qwerty-hancock.js"></script>
+<script src="js/nexusUI.js"></script>
+<script type="text/javascript" src="./js/mml.js"></script>
+
+<!--BOX-->
+<script src="boxClasses/boxEntery.js"></script>
+<script src="boxClasses/boxControlls.js"></script>
+<script src="boxClasses/boxUI.js"></script>
+<script src="boxClasses/boxController.js"></script>
+
+
+
+<!--SaveLoad-->
+<script src="manageClasses/saveLoadClass.js"></script>
+<!--events-->
+<script src="manageClasses/connectorsEvents.js"></script>
+
+
+<!--**************************** tools************************************************* -->
+<script src="manageClasses/menu.js"></script>
+
+<script src="toolsClasses/osc.js"></script>
+
+
+<script src="toolsClasses/dashboard.js"></script>
+<script src="toolsClasses/audioDestination.js"></script>
+<script src="js/jquery-1.12.0.js">
+</script>
+<script src="js/jquery-ui.js"></script>
+<script src="toolsClasses/visualiser.js"></script>
+<script src="toolsClasses/audioDestination.js"></script>
+<script src="toolsClasses/audioGain.js"></script>
+<script src="toolsClasses/knob.js"></script>
+<script src="toolsClasses/piano.js"></script>
+<script src="toolsClasses/envelope.js"></script>
+<script src="toolsClasses/simpleSequencer.js"></script>
+<script src="toolsClasses/mml.js"></script>
+<script src="toolsClasses/drums.js"></script>
+<script src="toolsClasses/filter.js"></script>
+<script src="toolsClasses/buffer.js"></script>
+<script src="toolsClasses/midi.js"></script>
+<!--**************************** tools************************************************* -->
+
+
+
+<!--**************************** MIDI.JS************************************************* -->
+	<!-- polyfill -->
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<!-- polyfill -->
+	<script src="MIDI.js/inc/shim/Base64.js" type="text/javascript"></script>
+	<script src="MIDI.js/inc/shim/Base64binary.js" type="text/javascript"></script>
+	<script src="MIDI.js/inc/shim/WebAudioAPI.js" type="text/javascript"></script>
+	<!-- midi.js package -->
+	<script src="MIDI.js/js/midi/audioDetect.js" type="text/javascript"></script>
+	<script src="MIDI.js/js/midi/gm.js" type="text/javascript"></script>
+	<script src="MIDI.js/js/midi/loader.js" type="text/javascript"></script>
+	<script src="MIDI.js/js/midi/plugin.audiotag.js" type="text/javascript"></script>
+	<script src="MIDI.js/js/midi/plugin.webaudio.js" type="text/javascript"></script>
+	<script src="MIDI.js/js/midi/plugin.webmidi.js" type="text/javascript"></script>
+	<script src="MIDI.js/js/midi/player.js" type="text/javascript"></script>
+	<script src="MIDI.js/js/midi/synesthesia.js" type="text/javascript"></script>
+
+	<!-- utils -->
+	<script src="MIDI.js/js/util/dom_request_xhr.js" type="text/javascript"></script>
+	<script src="MIDI.js/js/util/dom_request_script.js" type="text/javascript"></script>
+
+	<script src="MIDI.js/inc/jasmid/stream.js"></script>
+	<script src="MIDI.js/inc/jasmid/midifile.js"></script>
+	<script src="MIDI.js/inc/jasmid/replayer.js"></script>
+<!--**************************** MIDI.JS************************************************* -->
+
+
+
+
+<link rel="stylesheet" href="css/window.css" media="screen" charset="utf-8">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+    <div id="floatMenu">|
+        <button id='saveAll'>save</button><br />
+        <button id='saveAll'>save</button><br />
+        <button id='saveAll'>save</button>
+    </div>
+    
+    <!--  <div id='diagramContainer'></div>-->
+</body>
+<script>
+    var context = new AudioContext()
+    $(document).ready(function () {
+        //init Obeject
+        jsPlumb.Defaults.Container = $("body"); // <-- Provide default conatiner
+        jsPlumb.ready(function () {
+
+            var eve = new eventsActions()
+            eve.events();
+        })
+
+       
+    })
+
+
+nx.onload = function() {
+nx.colorize("accent", "#1CEE81");
+			    nx.colorize("border", "#1CEE81");
+			    nx.colorize("fill", "#335464");
+                nx.colorize("lable", "black");
+
+}
+setTimeout(function(){
+nx.labelSize(40);
+},1000)
+
+    /*var myDashboard = new dashboard();
+    myDashboard.createDashboard('mydash');
+    */
+
+    var myDashboard = new dashboard();
+    // myDashboard.createDashboard('mydash');
+    /* myDashboard.setName('myDashboard');
+     myDashboard.setParentBox('body');
+     myDashboard.setType('dashboard')
+     myDashboard.setParentBox(document.body)
+     myDashboard.setSdkPosition({
+         left: '10px',
+         top: 'top'
+     })
+
+     myDashboard.setGuiPosition({
+         left: '10px',
+         top: 'top'
+     })
+     myDashboard.setCurrentView('sdk');*/
+    var myDashJson = {
+            name: 'myDash',
+            parent: 'body',
+            type: 'dashboard',
+            parentBox: document.body,
+            sdkPosition: {
+                left: '10px',
+                top: '10px'
+            },
+            guiPosition: {
+                left: '10px',
+                top: '10px'
+            }
+
+        }
+        //  myDashboard.setParentBox(document.body)
+        /*    myDashboard.initBoxValues(myDashJson);
+            myDashboard.createBox();*/
+        //events
+
+    //save
+    var saveAll = document.getElementById('saveAll');
+    var sl = new saveLoad();
+    saveAll.onclick = function () {
+        dashboard1BoxBox.changeView('SdkView');
+            var saveUrl = ("http://localhost:8080/OneBox.html?jsonProject=" + sl.EncBase64(JSON.stringify(sl.saveProject())))
+
+            function copyToClipboard(text) {
+                window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+            }
+            copyToClipboard(saveUrl)
+
+        }
+        // var myAudioDestination = new audioDestination('destination')
+        //load
+
+    var loadJson = {
+        "devices": {
+            "dashboard1": {
+                "name": "dashboard1Box",
+                "type": "dashboard",
+                "sdkTop": "1px",
+                "sdkLeft": "1px",
+                "guiTop": "88px",
+                "guiLeft": "10px",
+                "parentBox": "",
+                "currentView": "SdkView",
+                "isShowInGui": true
+            },
+           /* "osc50699": {
+                "name": "osc50699",
+                "type": "osc",
+                "sdkTop": "78px",
+                "sdkLeft": "34px",
+                "guiTop": "88px",
+                "guiLeft": "10px",
+                "parentBox": "dashboard1",
+                "currentView": "sdk",
+                "isShowInGui": false
+            },
+            "osc20912": {
+                "name": "osc20912",
+                "type": "osc",
+                "sdkTop": "88px",
+                "sdkLeft": "261px",
+                "guiTop": "88px",
+                "guiLeft": "250px",
+                "parentBox": "dashboard1",
+                "currentView": "sdk",
+                "isShowInGui": true
+            },
+            "osc49662": {
+                "name": "osc49662",
+                "type": "osc",
+                "sdkTop": "137px",
+                "sdkLeft": "488px",
+                "guiTop": "146px",
+                "guiLeft": "434px",
+                "parentBox": "dashboard1",
+                "currentView": "sdk",
+                "isShowInGui": true
+            }*/
+        },
+        "connections": {
+      
+        }
+    }
+
+    var sl = new saveLoad(loadJson);
+
+    if (sl.loadFromUrl()) {
+        
+        var projectFromUrl = sl.DecBase64(sl.loadFromUrl(), true)
+        sl.loadProject(JSON.parse(projectFromUrl))
+    } else {
+        
+        sl.loadProject(loadJson)
+            //new box(destination('destination'))
+    }
+    console.log(projectFromUrl)
+</script>
+
+<script>
+     /*  
+    var dashboardJson = {
+        name: 'dashboard1',
+        type: 'dashboard',
+        parentBox: document.body,
+        position: {
+            sdkTop: '10px',
+            sdkLeft: '10px',
+            guiTop: '10px',
+            guiLeft: '10px'
+        },
+
+        currentView: 'sdk'
+    }
+
+     var dashboard1 = new dashboard();
+        dashboard1.initBoxValues(dashboardJson)
+        dashboard1.createBox();*/
+</script>

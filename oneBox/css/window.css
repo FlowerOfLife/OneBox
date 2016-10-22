@@ -1,0 +1,119 @@
+@font-face {
+  font-family: 'Monda-Bold';
+  src: url('Monda-Bold.eot'); /* IE9 Compat Modes */
+  src: url('Monda-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('Monda-Bold.woff2') format('woff2'), /* Super Modern Browsers */
+       url('Monda-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('Monda-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('Monda-Bold.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+body {
+    /* font-family: monospace; */
+    /* font-size: medium; */
+    /* color: #E91E63; */
+    /* text-align: center; */
+
+    font-family: 'MyWebFont', Fallback, sans-serif;
+    font-weight: 700;
+    /*color: rgb(21, 183, 168);*/
+    color: #E5A1FF;
+     -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none !important;   /* Chrome/Safari/Opera */
+      -khtml-user-select: none;    /* Konqueror */
+      -moz-user-select: none;      /* Firefox */
+      -ms-user-select: none;       /* Internet Explorer/Edge */
+      user-select: none !important;           /* Non-prefixed version, currently*/
+}
+
+
+
+
+.boxContainerDiv {
+    background-color: rgba(0, 0, 0, 0.21);
+    border-color: #AB3030;
+  
+    /* border: solid 1px #3B9693; */
+    border-radius: 14px;
+    /* height: 199px; */
+    /* width: 268px; */
+    position: absolute;
+    /* margin: 1px; */
+}
+.boxDashboardContainerDiv{
+    background-color: #090E14;
+    /* border-color: #AB3030; */
+    /* border: solid 1px #3B9693; */
+    border-radius: 14px;
+    /* height: auto; */
+    /* width: auto; */
+    position: absolute;
+    /* margin: 1px; */
+}
+
+
+
+.boxConnector {
+    padding: 5px;
+    font-size: 10px;
+    /* width: 200px; */
+    margin: 4px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.boxToolbarDiv {
+    width: auto;
+    height: 20px;
+    font-size: 18px;
+    text-align: center;
+    background-color: #1f4546;
+    color: #E5A1FF;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+}
+
+.boxWorkspaceDiv {
+    width: auto;
+    height: auto;
+    background: #090E14
+}
+
+.boxWorkspaceDiv .boxWorkspaceDiv{
+    background: #3b597d;
+}
+
+.boxConnectorsDiv {
+    width: auto;
+    height: auto;
+}
+
+.boxConnectorDiv {
+    border: 1px black solid;
+    width: auto;
+    height: auto;
+}
+
+.dashboardModule {
+    border: 1px red solid;
+    width: 180px;
+    height: 180px;
+}
+
+#floatMenu{
+    position: fixed;
+    opacity: 1;
+    bottom: 300px; 
+    left: 0px;
+    width: 10px;
+  
+}
+
+.jsplumb-hover{
+    opacity: 0.5;
+    cursor: move;
+}
+
+ svg path {
+  stroke:rgb(174, 129, 255);
+}
