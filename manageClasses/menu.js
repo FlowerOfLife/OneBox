@@ -22,7 +22,10 @@ class myMenu {
                 addButton.className  += 'material-icons'
                 addButton.innerHTML = menuItemsIcons[items];
                 addButton.setAttribute('title', menuItems[items]);
-
+                var label = document.createElement('label');
+                label.innerHTML = menuItems[items];
+                addButton.appendChild(label);
+                
                 menuDiv.appendChild(addButton)
                 addButton.onclick = function () {
                     var deviceJsonObject = (menuItems[items] + Math.floor((Math.random() * 100000) + 1))

@@ -140,7 +140,17 @@ body {
     -webkit-filter: invert(100%);
     filter: invert(100%);
 }
-
+.material-icons label{
+    font-family: monospace;
+    font-size: 18px;
+    position: absolute;
+    display: inline-block;
+    width: 130px;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+    padding-left: 5px;
+}
  svg path {
   stroke:rgb(174, 129, 255);
 }
