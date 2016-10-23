@@ -35,13 +35,16 @@ class buffer extends boxController {
         window[self.getName()] = context.createGain();
 
         //**********************Buffer source****************************************
-        function playSound(thisBuffer, freq, vel) {
+        function playSound(thisBuffer, freq, vel,sampleRate) {
             var source = context.createBufferSource();
             //window[self.getName()].gain.value = 0;
             if (freq) {
                 source.playbackRate.value = (freq / 240).toFixed(2);
             }
-
+            if (sampleRate) {
+                console.log(sampleRate)
+                source.playbackRate.value = sampleRate;
+            }
             if (vel) {
                 window[self.getName()].gain.value = vel / 100;
             }
@@ -71,7 +74,7 @@ class buffer extends boxController {
             request.send();
         };
 
-
+    var sampleRate = 1
 
         //**********************UP DOWN PRESS****************************************
         window[self.getName()].up = function (freq, vel) {
@@ -79,10 +82,10 @@ class buffer extends boxController {
         }
 
         window[self.getName()].down = function (freq, vel) {
-
+             
 
             if (freq == undefined) {
-                mySampl.trigger(context.currentTime, sampleRate, vel);
+                 playSound(thisBuffer, freq, vel, sampleRate)
             } else {
 
                 //******************************PLAY*******************************************************
@@ -101,18 +104,21 @@ class buffer extends boxController {
 
 
         //******************************Controls*******************************************************
-
+//var sampleRate = 1
         setTimeout(function () {
             var mySampleRate = nx.add('dial', {
                 parent: contentDiv.id,
-                w: 50,
-                h: 50,
+                w: 70,
+                h: 70,
             })
 
             mySampleRate.on('*', function (data) {
                 console.log(data, window[self.getName() + 'playRate'])
-                    //  window[self.getName()+'playRate'].value = data.value
-                sampleRate = data.value;
+                   //   window[self.getName()+'playRate'].value = data.value
+                      if(sampleRate){
+                        sampleRate = data.value;
+                      }
+                
             })
 
 
@@ -151,11 +157,11 @@ class buffer extends boxController {
             IO: 'IN',
             type: 'WebAudioToWebAudio'
         }, {
-            value: oscName + 'playRate',
+            value: oscName + '.playbackRate',
             IO: 'IN',
             type: 'WebAudioToWebAudio'
         }, {
-            value: oscName + ".playRate.value",
+            value: oscName + ".playbackRate.value",
             IO: 'IN',
             type: 'ControllerToWebAudio'
         }, {

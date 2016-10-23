@@ -23,7 +23,6 @@
 
 <script src="toolsClasses/osc.js"></script>
 
-
 <script src="toolsClasses/dashboard.js"></script>
 <script src="toolsClasses/audioDestination.js"></script>
 <script src="js/jquery-1.12.0.js">
@@ -41,6 +40,7 @@
 <script src="toolsClasses/filter.js"></script>
 <script src="toolsClasses/buffer.js"></script>
 <script src="toolsClasses/midi.js"></script>
+<script src="toolsClasses/lineSequencer.js"></script>
 <!--**************************** tools************************************************* -->
 
 
@@ -224,15 +224,18 @@ nx.labelSize(40);
     var sl = new saveLoad(loadJson);
 
     if (sl.loadFromUrl()) {
-        
-        var projectFromUrl = sl.DecBase64(sl.loadFromUrl(), true)
-        sl.loadProject(JSON.parse(projectFromUrl))
+        $.getJSON("instruments/drumBox.json", function(json) {
+            console.log(json)
+     sl.loadProject(json)
+});
+       // var projectFromUrl = sl.DecBase64(sl.loadFromUrl(), true)
+        //sl.loadProject(JSON.parse(projectFromUrl))
     } else {
         
         sl.loadProject(loadJson)
             //new box(destination('destination'))
     }
-    console.log(projectFromUrl)
+   // console.log(projectFromUrl)
 </script>
 
 <script>

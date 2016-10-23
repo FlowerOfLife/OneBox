@@ -4,8 +4,8 @@ class myMenu {
         // this.menuObject()
     }
     menuObject() {
-        var menuItems = ['osc', 'dashboard', 'visualiser', 'gain', 'knob', 'keyboard', 'mml','audioDestination','envelope','piano','simpleSequencer','drums','filter','buffer','midiPlayer'];
-        var menuItemsIcons = ['album', 'add_to_queue', 'gradient', 'data_usage', 'av_timer', 'keyboard', 'business','volume_up','subtitles','view_column','dialpad','view_module','format_line_spacing','assessment','queue_music'];
+        var menuItems = ['osc', 'dashboard', 'visualiser', 'gain', 'knob', 'keyboard', 'mml','audioDestination','envelope','piano','simpleSequencer','drums','filter','buffer','midiPlayer','lineSequencer'];
+        var menuItemsIcons = ['album', 'add_to_queue', 'gradient', 'data_usage', 'av_timer', 'keyboard', 'business','volume_up','subtitles','view_column','dialpad','view_module','format_line_spacing','assessment','queue_music','view_column'];
         var dashboardMenu = document.createElement('div');
         //div menu
         var menuDiv = document.createElement('div');
@@ -16,7 +16,7 @@ class myMenu {
 
 
                 //menu button
-                console.log(items);
+                //console.log(items);
                 var addButton = document.createElement('i');
                 addButton.id = menuItems[items] + 'button';
                 addButton.className  += 'material-icons'
