@@ -178,12 +178,12 @@ function downloadJsonFile(data, filename, type) {
     saveAll.onclick = function () {
         downloadJsonFile(JSON.stringify(sl.saveProject()),'save.json','text')
         dashboard1BoxBox.changeView('SdkView');
-            var saveUrl = ("http://localhost:8080/OneBox.html?jsonProject=" + sl.EncBase64(JSON.stringify(sl.saveProject())))
+           // var saveUrl = ("http://localhost:8080/OneBox.html?jsonProject=" + sl.EncBase64(JSON.stringify(sl.saveProject())))
 
             function copyToClipboard(text) {
                 window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
             }
-            copyToClipboard(saveUrl)
+          //  copyToClipboard(saveUrl)
 
         }
         // var myAudioDestination = new audioDestination('destination')
