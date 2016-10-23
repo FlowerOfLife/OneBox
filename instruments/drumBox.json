@@ -43,6 +43,7 @@
             "isShowInGui": true
         },
         "buffer40881": {
+            "file": "kick-808.wav",
             "name": "buffer40881",
             "type": "buffer",
             "sdkTop": "10px",
@@ -53,6 +54,7 @@
             "currentView": "sdk"
         },
         "buffer74174": {
+            "file": "tom-808.wav",
             "name": "buffer74174",
             "type": "buffer",
             "sdkTop": "10px",
@@ -63,6 +65,7 @@
             "currentView": "sdk"
         },
         "buffer72247": {
+            "file": "snare-808.wav",
             "name": "buffer72247",
             "type": "buffer",
             "sdkTop": "10px",
@@ -73,6 +76,7 @@
             "currentView": "sdk"
         },
         "buffer47431": {
+            "file": "hihat-808.wav",
             "name": "buffer47431",
             "type": "buffer",
             "sdkTop": "10px",
@@ -83,6 +87,7 @@
             "currentView": "sdk"
         },
         "buffer33547": {
+            "file": "perc-808.wav",
             "name": "buffer33547",
             "type": "buffer",
             "sdkTop": "10px",
@@ -146,5 +151,12 @@
             "source": "gain13733OUT",
             "target": "context.destinationIN"
         }
+    },
+    "patchValues": {
+        "buffer40881fileId": "",
+        "buffer74174fileId": "",
+        "buffer72247fileId": "",
+        "buffer47431fileId": "",
+        "buffer33547fileId": ""
     }
 }

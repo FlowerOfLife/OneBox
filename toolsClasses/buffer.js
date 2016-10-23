@@ -21,8 +21,10 @@ class buffer extends boxController {
 
         var fileInput = document.createElement("INPUT");
         fileInput.setAttribute("type", "file");
-
+        fileInput.setAttribute("id", self.getName() + "fileId");
         fileInput.onchange = function () {
+            console.log(this.files[0])
+            self.setFile(this.files[0].name)
             var url = URL.createObjectURL(this.files[0]);
             console.log(url);
             sampleLoader(url);
@@ -35,7 +37,7 @@ class buffer extends boxController {
         window[self.getName()] = context.createGain();
 
         //**********************Buffer source****************************************
-        function playSound(thisBuffer, freq, vel,sampleRate) {
+        function playSound(thisBuffer, freq, vel, sampleRate) {
             var source = context.createBufferSource();
             //window[self.getName()].gain.value = 0;
             if (freq) {
@@ -61,6 +63,9 @@ class buffer extends boxController {
         //**********************SalmpeLoader****************************************
         var thisBuffer = [];
         var sampleLoader = function (url) {
+            
+            url = 'samples/' + self.getFile();
+            console.log(url,self,self.getFile(),3434343434)
             var request = new XMLHttpRequest();
             request.open("GET", url, true);
             request.responseType = "arraybuffer";
@@ -74,7 +79,7 @@ class buffer extends boxController {
             request.send();
         };
 
-    var sampleRate = 1
+        var sampleRate = 1
 
         //**********************UP DOWN PRESS****************************************
         window[self.getName()].up = function (freq, vel) {
@@ -82,10 +87,10 @@ class buffer extends boxController {
         }
 
         window[self.getName()].down = function (freq, vel) {
-             
+
 
             if (freq == undefined) {
-                 playSound(thisBuffer, freq, vel, sampleRate)
+                playSound(thisBuffer, freq, vel, sampleRate)
             } else {
 
                 //******************************PLAY*******************************************************
@@ -100,11 +105,20 @@ class buffer extends boxController {
 
         //******************************init*******************************************************
         //sampleLoader('samples/piano.wav');
-        sampleLoader('samples/guitar.wav');
+        setTimeout(function(){
+       if(self.getFile()){
+            self.setFile(self.getFile());
+       }
+     //   self.setFile(self.getFile());
+        sampleLoader('samples/' + self.getFile());
+        },1000)
+
+
+
 
 
         //******************************Controls*******************************************************
-//var sampleRate = 1
+        //var sampleRate = 1
         setTimeout(function () {
             var mySampleRate = nx.add('dial', {
                 parent: contentDiv.id,
@@ -114,11 +128,11 @@ class buffer extends boxController {
 
             mySampleRate.on('*', function (data) {
                 console.log(data, window[self.getName() + 'playRate'])
-                   //   window[self.getName()+'playRate'].value = data.value
-                      if(sampleRate){
-                        sampleRate = data.value;
-                      }
-                
+                    //   window[self.getName()+'playRate'].value = data.value
+                if (sampleRate) {
+                    sampleRate = data.value;
+                }
+
             })
 
 

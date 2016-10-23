@@ -12,6 +12,12 @@ class boxEntety {
     setType(type) {
         this.type = type
     };
+    getFile() {
+        return this.file
+    };
+    setFile(file) {
+        this.file = file
+    };
     getContainer() {
         return this.container
     };

@@ -35,7 +35,10 @@ class midiPlayer extends boxController {
 
         var fileInput = document.createElement("INPUT");
         fileInput.setAttribute("type", "file");
-
+        fileInput.setAttribute("id",  self.getName() + "fileId");
+        fileInput.setAttribute("filepath", "mond_1.mid");
+       
+        
         fileInput.onchange = function () {
             var url = URL.createObjectURL(this.files[0]);
             console.log(url);

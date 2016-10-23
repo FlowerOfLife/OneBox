@@ -4,7 +4,8 @@ class saveLoad {
     saveProject() {
         var projectJson = {
             "devices": this.getBoxes(),
-            "connections": this.getConnections()
+            "connections": this.getConnections(),
+            "patchValues": this.getPatchValues()
         }
         console.log(projectJson)
         return projectJson
@@ -20,6 +21,8 @@ class saveLoad {
             self.setConnections(json.connections)
         }, 1000)
 
+        
+
     }
     getBoxes() {
         var allDevices = document.getElementsByClassName('boxContainerDiv');
@@ -30,6 +33,8 @@ class saveLoad {
                 var myDevice = eval((allDevices[i].id).replace('boxContainerDiv_', '') + 'Box');
                 var singleDevice = {}
                 console.log(myDevice, +i)
+                
+                singleDevice.file =  myDevice.getFile();
                 singleDevice.name = myDevice.getName();
                 singleDevice.type = myDevice.getType();
                 singleDevice.sdkTop = myDevice.getSdkPosition().top
@@ -55,7 +60,15 @@ class saveLoad {
     }
 
     getPatchValues() {
-        return 'this.patchValues'
+        var fileInputs = $('input:file');
+        console.log(fileInputs)
+        var files = {}
+        for (var i=0; i < fileInputs.length; i++) {
+            console.log(i)
+                files[$('input:file')[i].id] = ( $($('input:file')[i]).val().replace("C:\\fakepath\\",''));
+                console.log( $($('input:file')[i]).val(),"boxContainerRRRRRRRRRRRRRRRRRRR")
+        }
+        return files
     }
     setPatchValues() {}
     getConnections() {
@@ -75,15 +88,16 @@ class saveLoad {
         return connectionsJson
     }
     setBoxes(devices) {
- console.log(device)
+        console.log(device)
         for (var device in devices) {
 
             (function (device) {
-                
+
                 var deviceType = devices[device].type;
                 var deviceName = devices[device].name;
                 var deviceParent = devices[device].parentBox;
                 var myDeviceJson = devices[device]
+               // var deviceFile = 
                 if (myDeviceJson.parentBox == "") {
                     myDeviceJson.parentBox = document.body;
                 } else {
@@ -95,10 +109,15 @@ class saveLoad {
                 var device = eval(("new " + myDeviceJson.type + "('" + myDeviceJson.name + "')"))
 
                 window[deviceName + 'Box'] = device
-                 window[deviceName + 'Box'].initBoxValues(myDeviceJson)
-                  console.log(deviceName,myDeviceJson.name ,989898);
-                 window[deviceName + 'Box'].createBox();
-                 
+                window[deviceName + 'Box'].initBoxValues(myDeviceJson)
+                console.log(deviceName, myDeviceJson.name, 989898);
+                window[deviceName + 'Box'].createBox();
+                //set file
+                console.log(myDeviceJson,777777,deviceType)
+                if(myDeviceJson.file){
+            window[deviceName + 'Box'].setFile(myDeviceJson.file)
+                }
+               
                 //eval("var " + myDeviceJson.name + "=new " + myDeviceJson.type + "('" + myDeviceJson.name + "')")
             })(device)
         }
@@ -121,7 +140,7 @@ class saveLoad {
 
             mydevice.style.top = devices[device].sdkTop;
             mydevice.style.left = devices[device].sdkLeft;
-          
+
 
             (function (device) {
 

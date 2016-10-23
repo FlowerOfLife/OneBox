@@ -17,6 +17,7 @@ class boxController extends boxUI{
         this.setIsShowInGUI(boxJson.isShowInGui);
         this.setHeight(boxJson.height);
         this.setWidth(boxJson.width);
+        this.setFile(boxJson.file);
         //this.setPatchValues(boxJson.patchValues);
     }
 
