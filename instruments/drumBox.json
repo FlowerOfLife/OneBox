@@ -153,8 +153,8 @@
     },
     "patchValues": {
         "knobs": {
-            "dial1": 432,
-            "dial2": 292,
+            "dial1": 272,
+            "dial2": 136,
             "dial3": 340,
             "dial4": 568,
             "dial5": 384,
@@ -163,8 +163,8 @@
             "dial8": 636,
             "dial9": 388,
             "dial10": 380,
-            "gain13733Value": 192,
-            "gain13733Value02": 0,
+            "gain13733Value": 0,
+            "gain13733Value02": 1.272,
             "dial13": 0,
             "dial14": 0,
             "dial15": 0,
@@ -172,7 +172,7 @@
             "dial17": 0
         },
         "files": {
-            "buffer40881fileId": "",
+            "buffer40881fileId": "kick-808.wav",
             "buffer74174fileId": "",
             "buffer72247fileId": "",
             "buffer47431fileId": "",

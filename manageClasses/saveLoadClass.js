@@ -87,7 +87,7 @@ class saveLoad {
       
             for (var patch in patches.knobs) {
                 window[patch].val.value = patches.knobs[patch];
-                console.log(window[patch].emit())
+                console.log(window[patch].click())
                 console.log(patches.knobs[patch], patch)
             }
 
