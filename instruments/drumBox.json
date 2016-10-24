@@ -17,8 +17,7 @@
             "sdkTop": "49px",
             "sdkLeft": "475px",
             "parentBox": "dashboard1Box",
-            "currentView": "GuiEditor",
-            "height": 566
+            "currentView": "SdkView"
         },
         "lineSequencer9733": {
             "name": "lineSequencer9733",
@@ -46,8 +45,8 @@
             "file": "kick-808.wav",
             "name": "buffer40881",
             "type": "buffer",
-            "sdkTop": "10px",
-            "sdkLeft": "10px",
+            "sdkTop": "83px",
+            "sdkLeft": "836px",
             "guiTop": "10px",
             "guiLeft": "10px",
             "parentBox": "dashboard54978",
@@ -57,8 +56,8 @@
             "file": "tom-808.wav",
             "name": "buffer74174",
             "type": "buffer",
-            "sdkTop": "10px",
-            "sdkLeft": "10px",
+            "sdkTop": "57px",
+            "sdkLeft": "963px",
             "guiTop": "10px",
             "guiLeft": "10px",
             "parentBox": "dashboard54978",
@@ -68,8 +67,8 @@
             "file": "snare-808.wav",
             "name": "buffer72247",
             "type": "buffer",
-            "sdkTop": "10px",
-            "sdkLeft": "10px",
+            "sdkTop": "78px",
+            "sdkLeft": "810px",
             "guiTop": "10px",
             "guiLeft": "10px",
             "parentBox": "dashboard54978",
@@ -79,8 +78,8 @@
             "file": "hihat-808.wav",
             "name": "buffer47431",
             "type": "buffer",
-            "sdkTop": "10px",
-            "sdkLeft": "10px",
+            "sdkTop": "55px",
+            "sdkLeft": "814px",
             "guiTop": "10px",
             "guiLeft": "10px",
             "parentBox": "dashboard54978",
@@ -90,8 +89,8 @@
             "file": "perc-808.wav",
             "name": "buffer33547",
             "type": "buffer",
-            "sdkTop": "10px",
-            "sdkLeft": "10px",
+            "sdkTop": "83px",
+            "sdkLeft": "472px",
             "guiTop": "10px",
             "guiLeft": "10px",
             "parentBox": "dashboard54978",
@@ -153,10 +152,31 @@
         }
     },
     "patchValues": {
-        "buffer40881fileId": "",
-        "buffer74174fileId": "",
-        "buffer72247fileId": "",
-        "buffer47431fileId": "",
-        "buffer33547fileId": ""
+        "knobs": {
+            "dial1": 432,
+            "dial2": 292,
+            "dial3": 340,
+            "dial4": 568,
+            "dial5": 384,
+            "dial6": 408,
+            "dial7": 552,
+            "dial8": 636,
+            "dial9": 388,
+            "dial10": 380,
+            "gain13733Value": 192,
+            "gain13733Value02": 0,
+            "dial13": 0,
+            "dial14": 0,
+            "dial15": 0,
+            "dial16": 0,
+            "dial17": 0
+        },
+        "files": {
+            "buffer40881fileId": "",
+            "buffer74174fileId": "",
+            "buffer72247fileId": "",
+            "buffer47431fileId": "",
+            "buffer33547fileId": ""
+        }
     }
 }

@@ -168,7 +168,7 @@ class lineSequencer extends boxController {
 
                                 };
 
-                                self['upDownCh' + i].keyUp = function (frequency) {
+                                self['upDownCh' + i].keyUp = function (frequency,vel) {
                                     //  console.log(note, frequency)
 
                                     envelop.up(frequency,vel)

@@ -86,4 +86,12 @@ class boxEntety {
     getHeight(){
     return this.height;
     }
+
+    getPatchValues(){
+        return this.patchValues;
+    }
+
+    setPatchValues(patch){
+       this.patchValues = patch 
+    }
 }

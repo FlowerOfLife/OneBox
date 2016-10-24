@@ -19,9 +19,11 @@ class saveLoad {
 
         setTimeout(function () {
             self.setConnections(json.connections)
+           
+            self.setPatchValues(json.patchValues)
         }, 1000)
 
-        
+
 
     }
     getBoxes() {
@@ -33,8 +35,8 @@ class saveLoad {
                 var myDevice = eval((allDevices[i].id).replace('boxContainerDiv_', '') + 'Box');
                 var singleDevice = {}
                 console.log(myDevice, +i)
-                
-                singleDevice.file =  myDevice.getFile();
+
+                singleDevice.file = myDevice.getFile();
                 singleDevice.name = myDevice.getName();
                 singleDevice.type = myDevice.getType();
                 singleDevice.sdkTop = myDevice.getSdkPosition().top
@@ -62,15 +64,36 @@ class saveLoad {
     getPatchValues() {
         var fileInputs = $('input:file');
         console.log(fileInputs)
+        var patchesValues = {}
+        var knobsValues = {}
         var files = {}
-        for (var i=0; i < fileInputs.length; i++) {
+
+        //rewrite to take values from an objeect
+        for (var i = 0; i < fileInputs.length; i++) {
             console.log(i)
-                files[$('input:file')[i].id] = ( $($('input:file')[i]).val().replace("C:\\fakepath\\",''));
-                console.log( $($('input:file')[i]).val(),"boxContainerRRRRRRRRRRRRRRRRRRR")
+            files[$('input:file')[i].id] = ($($('input:file')[i]).val().replace("C:\\fakepath\\", ''));
+            console.log($($('input:file')[i]).val(), "boxContainerRRRRRRRRRRRRRRRRRRR")
         }
-        return files
+        for (var widget in nx.widgets) {
+            knobsValues[widget] = nx.widgets[widget].val.value
+            console.log(widget, ':', nx.widgets[widget].val.value)
+        }
+        patchesValues['knobs'] = knobsValues;
+        patchesValues['files'] = files;
+        return patchesValues
     }
-    setPatchValues() {}
+    setPatchValues(patches) {
+         console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",patches)
+      
+            for (var patch in patches.knobs) {
+                window[patch].val.value = patches.knobs[patch];
+                console.log(window[patch].emit())
+                console.log(patches.knobs[patch], patch)
+            }
+
+            nx.onload()
+        
+    }
     getConnections() {
 
         var connections = jsPlumb.getConnections();
@@ -97,7 +120,7 @@ class saveLoad {
                 var deviceName = devices[device].name;
                 var deviceParent = devices[device].parentBox;
                 var myDeviceJson = devices[device]
-               // var deviceFile = 
+                    // var deviceFile = 
                 if (myDeviceJson.parentBox == "") {
                     myDeviceJson.parentBox = document.body;
                 } else {
@@ -113,11 +136,11 @@ class saveLoad {
                 console.log(deviceName, myDeviceJson.name, 989898);
                 window[deviceName + 'Box'].createBox();
                 //set file
-                console.log(myDeviceJson,777777,deviceType)
-                if(myDeviceJson.file){
-            window[deviceName + 'Box'].setFile(myDeviceJson.file)
+                console.log(myDeviceJson, 777777, deviceType)
+                if (myDeviceJson.file) {
+                    window[deviceName + 'Box'].setFile(myDeviceJson.file)
                 }
-               
+
                 //eval("var " + myDeviceJson.name + "=new " + myDeviceJson.type + "('" + myDeviceJson.name + "')")
             })(device)
         }
