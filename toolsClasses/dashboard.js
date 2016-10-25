@@ -72,6 +72,17 @@ class dashboard extends boxController {
         this.setCurrentView('GuiEditor');
 
         self.resizeDashboardForGuiView()
+         var dashboardWorkspace = self.getContent();
+        var dashboardDevices = dashboardWorkspace.getElementsByClassName('boxContainerDiv');
+            $('div', dashboardDevices).each(function (e) {
+                // console.log(this.id,e,111111)
+             //   jsPlumb.removeAllEndpoints(this);
+            })
+
+       $('div', dashboardDevices).each(function (e) {
+                jsPlumb.hide(this, true);
+            })
+      
             //jsPlumb.setDraggable(dashboardDevices[i], false);
 
     }
@@ -90,6 +101,10 @@ class dashboard extends boxController {
         $(dashboardWorkspace).animate({
             height: $("body").height()
         }, 300);
+
+            $('div', dashboardWorkspace).each(function (e) {
+                jsPlumb.hide(this, true);
+            })
     }
 
 
@@ -106,6 +121,13 @@ class dashboard extends boxController {
         $(dashboardWorkspace).animate({
             height: $("body").height()
         }, 300);
+
+
+      $('div', dashboardWorkspace).each(function (e) {
+                jsPlumb.show(this, "hide");
+            })
+            
+
     }
 
 

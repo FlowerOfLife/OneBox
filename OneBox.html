@@ -118,51 +118,11 @@ nx.labelSize(40);
     */
 
     var myDashboard = new dashboard();
-    // myDashboard.createDashboard('mydash');
-    /* myDashboard.setName('myDashboard');
-     myDashboard.setParentBox('body');
-     myDashboard.setType('dashboard')
-     myDashboard.setParentBox(document.body)
-     myDashboard.setSdkPosition({
-         left: '10px',
-         top: 'top'
-     })
 
-     myDashboard.setGuiPosition({
-         left: '10px',
-         top: 'top'
-     })
-     myDashboard.setCurrentView('sdk');*/
-    var myDashJson = {
-            name: 'myDash',
-            parent: 'body',
-            type: 'dashboard',
-            parentBox: document.body,
-            sdkPosition: {
-                left: '10px',
-                top: '10px'
-            },
-            guiPosition: {
-                left: '10px',
-                top: '10px'
-            }
 
-        }
-        //  myDashboard.setParentBox(document.body)
-        /*    myDashboard.initBoxValues(myDashJson);
-            myDashboard.createBox();*/
-        //events
-
-    //save
+//*****************************************save*************************
     var saveAll = document.getElementById('saveAll');
-
-    var LoadInstrument = document.getElementById('LoadInstrument');
-        LoadInstrument.onchange = function () {
-            var url = URL.createObjectURL(this.files[0]);
-            $.getJSON( url , function( result ){
-                 sl.loadProject(result)
-            });
-        };
+  
 
 
     var sl = new saveLoad();
@@ -196,9 +156,9 @@ function downloadJsonFile(data, filename, type) {
           //  copyToClipboard(saveUrl)
 
         }
-        // var myAudioDestination = new audioDestination('destination')
-        //load
+//*****************************************save*************************
 
+//default json
     var loadJson = {
         "devices": {
             "dashboard1": {
@@ -212,80 +172,34 @@ function downloadJsonFile(data, filename, type) {
                 "currentView": "SdkView",
                 "isShowInGui": true
             },
-           /* "osc50699": {
-                "name": "osc50699",
-                "type": "osc",
-                "sdkTop": "78px",
-                "sdkLeft": "34px",
-                "guiTop": "88px",
-                "guiLeft": "10px",
-                "parentBox": "dashboard1",
-                "currentView": "sdk",
-                "isShowInGui": false
-            },
-            "osc20912": {
-                "name": "osc20912",
-                "type": "osc",
-                "sdkTop": "88px",
-                "sdkLeft": "261px",
-                "guiTop": "88px",
-                "guiLeft": "250px",
-                "parentBox": "dashboard1",
-                "currentView": "sdk",
-                "isShowInGui": true
-            },
-            "osc49662": {
-                "name": "osc49662",
-                "type": "osc",
-                "sdkTop": "137px",
-                "sdkLeft": "488px",
-                "guiTop": "146px",
-                "guiLeft": "434px",
-                "parentBox": "dashboard1",
-                "currentView": "sdk",
-                "isShowInGui": true
-            }*/
-        },
+        
         "connections": {
       
         }
-    }
+    }}
 
     var sl = new saveLoad(loadJson);
+   //*****************************************LOAD*************************
+   //Load Button (load instrument)
+     var LoadInstrument = document.getElementById('LoadInstrument');
+        LoadInstrument.onchange = function () {
+            var url = URL.createObjectURL(this.files[0]);
+            $.getJSON( url , function( result ){
+                 sl.loadProject(result)
+            });
+        };
 
+
+   //Load Test Preset
     if (sl.loadFromUrl()) {
-        $.getJSON("instruments/drumBox.json", function(json) {
-            
+        $.getJSON("instruments/drumBox.json", function(json) {  
             console.log(json)
-     sl.loadProject(json)
-});
-       // var projectFromUrl = sl.DecBase64(sl.loadFromUrl(), true)
-        //sl.loadProject(JSON.parse(projectFromUrl))
+            sl.loadProject(json)
+        });
     } else {
-        
+        //Load default preset        
         sl.loadProject(loadJson)
-            //new box(destination('destination'))
-    }
-   // console.log(projectFromUrl)
-</script>
 
-<script>
-     /*  
-    var dashboardJson = {
-        name: 'dashboard1',
-        type: 'dashboard',
-        parentBox: document.body,
-        position: {
-            sdkTop: '10px',
-            sdkLeft: '10px',
-            guiTop: '10px',
-            guiLeft: '10px'
-        },
-
-        currentView: 'sdk'
     }
 
-     var dashboard1 = new dashboard();
-        dashboard1.initBoxValues(dashboardJson)
-        dashboard1.createBox();*/
 </script>

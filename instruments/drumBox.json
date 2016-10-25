@@ -17,15 +17,16 @@
             "sdkTop": "49px",
             "sdkLeft": "475px",
             "parentBox": "dashboard1Box",
-            "currentView": "SdkView"
+            "currentView": "SdkView",
+            "height": 410
         },
         "lineSequencer9733": {
             "name": "lineSequencer9733",
             "type": "lineSequencer",
             "sdkTop": "10px",
             "sdkLeft": "10px",
-            "guiTop": "10px",
-            "guiLeft": "10px",
+            "guiTop": "22px",
+            "guiLeft": "9px",
             "parentBox": "dashboard54978",
             "currentView": "sdk",
             "isShowInGui": true
@@ -33,10 +34,10 @@
         "gain13733": {
             "name": "gain13733",
             "type": "gain",
-            "sdkTop": "11px",
-            "sdkLeft": "410px",
-            "guiTop": "11px",
-            "guiLeft": "410px",
+            "sdkTop": "722px",
+            "sdkLeft": "1339px",
+            "guiTop": "511px",
+            "guiLeft": "126px",
             "parentBox": "dashboard54978",
             "currentView": "sdk",
             "isShowInGui": true
@@ -45,8 +46,8 @@
             "file": "kick-808.wav",
             "name": "buffer40881",
             "type": "buffer",
-            "sdkTop": "83px",
-            "sdkLeft": "836px",
+            "sdkTop": "32px",
+            "sdkLeft": "522px",
             "guiTop": "10px",
             "guiLeft": "10px",
             "parentBox": "dashboard54978",
@@ -56,8 +57,8 @@
             "file": "tom-808.wav",
             "name": "buffer74174",
             "type": "buffer",
-            "sdkTop": "57px",
-            "sdkLeft": "963px",
+            "sdkTop": "36px",
+            "sdkLeft": "863px",
             "guiTop": "10px",
             "guiLeft": "10px",
             "parentBox": "dashboard54978",
@@ -67,8 +68,8 @@
             "file": "snare-808.wav",
             "name": "buffer72247",
             "type": "buffer",
-            "sdkTop": "78px",
-            "sdkLeft": "810px",
+            "sdkTop": "575px",
+            "sdkLeft": "510px",
             "guiTop": "10px",
             "guiLeft": "10px",
             "parentBox": "dashboard54978",
@@ -78,8 +79,8 @@
             "file": "hihat-808.wav",
             "name": "buffer47431",
             "type": "buffer",
-            "sdkTop": "55px",
-            "sdkLeft": "814px",
+            "sdkTop": "301px",
+            "sdkLeft": "832px",
             "guiTop": "10px",
             "guiLeft": "10px",
             "parentBox": "dashboard54978",
@@ -89,12 +90,23 @@
             "file": "perc-808.wav",
             "name": "buffer33547",
             "type": "buffer",
-            "sdkTop": "83px",
-            "sdkLeft": "472px",
+            "sdkTop": "299px",
+            "sdkLeft": "478px",
             "guiTop": "10px",
             "guiLeft": "10px",
             "parentBox": "dashboard54978",
             "currentView": "sdk"
+        },
+        "visualiser63339": {
+            "name": "visualiser63339",
+            "type": "visualiser",
+            "sdkTop": "396px",
+            "sdkLeft": "10px",
+            "guiTop": "407px",
+            "guiLeft": "10px",
+            "parentBox": "dashboard54978",
+            "currentView": "sdk",
+            "isShowInGui": true
         },
         "audioDestination83613": {
             "name": "audioDestination83613",
@@ -149,14 +161,18 @@
         "gain13733OUTcontext.destinationIN": {
             "source": "gain13733OUT",
             "target": "context.destinationIN"
+        },
+        "visualiser63339OUTgain13733IN": {
+            "source": "visualiser63339OUT",
+            "target": "gain13733IN"
         }
     },
     "patchValues": {
         "knobs": {
             "dial1": 272,
-            "dial2": 136,
-            "dial3": 340,
-            "dial4": 568,
+            "dial2": 340,
+            "dial3": 400,
+            "dial4": 380,
             "dial5": 384,
             "dial6": 408,
             "dial7": 552,
@@ -172,7 +188,8 @@
             "dial17": 0
         },
         "files": {
-            "buffer40881fileId": "kick-808.wav",
+            "LoadInstrument": "",
+            "buffer40881fileId": "",
             "buffer74174fileId": "",
             "buffer72247fileId": "",
             "buffer47431fileId": "",
