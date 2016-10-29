@@ -83,7 +83,7 @@ class filter extends boxController {
 
             knobfilterGainValue.label = 'Gain'
             knobfilterGainValue.min = 0
-            knobfilterGainValue.max = 1000
+            knobfilterGainValue.max = 2
       
 
 
@@ -101,7 +101,7 @@ class filter extends boxController {
 
            
             knobfilterQValue.min = 0
-            knobfilterQValue.max = 1000
+            knobfilterQValue.max = 50
  knobfilterQValue.label = 'Q'
 
 

@@ -35,7 +35,7 @@ class buffer extends boxController {
         //**********************Create gain****************************************
         window[self.getName()] = {};
         window[self.getName()] = context.createGain();
-
+        
         //**********************Buffer source****************************************
         function playSound(thisBuffer, freq, vel, sampleRate) {
             var source = context.createBufferSource();
@@ -48,7 +48,7 @@ class buffer extends boxController {
                 source.playbackRate.value = sampleRate;
             }
             if (vel) {
-                window[self.getName()].gain.value = vel / 100;
+                window[self.getName()].gain.value = vel;
             }
             //load buffer
             source.buffer = thisBuffer;
@@ -73,6 +73,7 @@ class buffer extends boxController {
             request.onload = function () {
                 context.decodeAudioData(request.response, function (buffer) {
                     thisBuffer = buffer
+                    waveform1.setBuffer(buffer)
                 });
             };
 
@@ -138,7 +139,18 @@ class buffer extends boxController {
 
             mySampleRate.min = 0
             mySampleRate.max = 2
+
+
+             var waveform1 = nx.add('waveform', {
+                parent: contentDiv.id,
+                w: 150,
+                h: 80,
+            })
+        waveform1.on('*',function(data) {
+			    //	sampler.player.setLoopPoints(data.starttime/1000,data.stoptime/1000)
+			    })
         }, 100);
+
 
 
 

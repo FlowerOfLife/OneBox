@@ -35,10 +35,10 @@ class midiPlayer extends boxController {
 
         var fileInput = document.createElement("INPUT");
         fileInput.setAttribute("type", "file");
-        fileInput.setAttribute("id",  self.getName() + "fileId");
+        fileInput.setAttribute("id", self.getName() + "fileId");
         fileInput.setAttribute("filepath", "mond_1.mid");
-       
-        
+
+
         fileInput.onchange = function () {
             var url = URL.createObjectURL(this.files[0]);
             console.log(url);
@@ -54,71 +54,72 @@ class midiPlayer extends boxController {
 
 
 
-/********************************Load midi****************************/
-playMidi("mond_1.mid");
-function playMidi(midiFile){
-MIDI.loadPlugin({
-            // soundfontUrl: 'midi/soundfont/',
-            instruments: null,
-            onsuccess: function () {
-                var pluginLoaded = true;
-                var player = MIDI.Player;
-                MIDI.Player.BPM= 100
-                player.loadFile(midiFile, function () {
+        /********************************Load midi****************************/
+        playMidi("mond_1.mid");
 
-              //      player.loadFile("rach1-2.mid", function () {
-                    //MIDI.AudioTag.setVolume(0, 0);
-            //        MIDI.Player.BPM= 10
-                    MIDI.programChange(0, 120);
-                    MIDI.AudioTag.setVolume(1, 0);
-                    for (var i = 0; i < MIDI.channels.length; i++) {
-                        MIDI.channels[i].mute = true
-                    }
+        function playMidi(midiFile) {
+            MIDI.loadPlugin({
+                // soundfontUrl: 'midi/soundfont/',
+                instruments: null,
+                onsuccess: function () {
+                    var pluginLoaded = true;
+                    var player = MIDI.Player;
+                    MIDI.Player.BPM = 100
+                    player.loadFile(midiFile, function () {
 
-                    startSequencerButton.onclick = function () {
-                        player.start();
-                    }
+                        //      player.loadFile("rach1-2.mid", function () {
+                        //MIDI.AudioTag.setVolume(0, 0);
+                        //        MIDI.Player.BPM= 10
+                        MIDI.programChange(0, 120);
+                        MIDI.AudioTag.setVolume(1, 0);
+                        for (var i = 0; i < MIDI.channels.length; i++) {
+                            MIDI.channels[i].mute = true
+                        }
 
-                    stopSequencerButton.onclick = function () {
-                        player.stop();
-                    }
+                        startSequencerButton.onclick = function () {
+                            player.start();
+                        }
 
-
-                    // $('#midiPlayPause > i').toggleClass('mdi-av-play-arrow mdi-av-pause');
-                    var loaded = true;
-                }, null, function (error) {
-                    createToast('midi file does not exist.');
-                });
+                        stopSequencerButton.onclick = function () {
+                            player.stop();
+                        }
 
 
-
-
-                player.addListener(function (data) {
-                   console.log(data)
-
-
-                    var now = data.now;
-                    var end = data.end;
-                    var channel = data.channel;
-                    var note = data.note;
-                    var velocity = data.velocity;
-                    
-                    try {
-                        play(mtof(note), velocity/100,velocity);
-                    } catch (e) {
-                        console.log(e)
-                    }
-
-                    if (now + 1 > end) {
-                        var loaded = false;
                         // $('#midiPlayPause > i').toggleClass('mdi-av-play-arrow mdi-av-pause');
-                    }
-                });
-            }
-        });
+                        var loaded = true;
+                    }, null, function (error) {
+                        createToast('midi file does not exist.');
+                    });
 
-}
-        
+
+
+
+                    player.addListener(function (data) {
+                        console.log(data)
+
+
+                        var now = data.now;
+                        var end = data.end;
+                        var channel = data.channel;
+                        var note = data.note;
+                        var velocity = data.velocity;
+
+                        try {
+                            play(mtof(note), velocity / 100, velocity);
+                        } catch (e) {
+                            console.log(e.stack)
+                        }
+
+                        if (now + 1 > end) {
+                            var loaded = false;
+                            // $('#midiPlayPause > i').toggleClass('mdi-av-play-arrow mdi-av-pause');
+                        }
+                    });
+                }
+            });
+
+        }
+
 
 
         function mtof(noteNumber) {
@@ -126,37 +127,45 @@ MIDI.loadPlugin({
         }
 
 
-        function play(freq, duration,vel) {
-           // console.log(freq, duration,vel)
-            self.keyDown(freq,vel);
+        function play(freq, duration, vel) {
+            // console.log(freq, duration,vel)
+            self.keyDown(freq, vel);
             setTimeout(function () {
-                self.keyUp(freq);
-            }, duration)
+                self.keyUp(freq,vel);
+            }, vel * 10)
         }
 
 
         //functionalety
+        var envelopArray = []
         window[self.getName() + "upDown"] = {}
         window[self.getName() + "upDown"].connect = function (envelop) {
-    
+            envelopArray.push(envelop)
 
-            self.keyUp = function (frequency,vel) {
-
-                envelop.up(frequency,vel)
+            self.keyUp = function (frequency, vel) {
+                for (var env in envelopArray) {
+                    envelopArray[env].up(frequency, vel)
+                }
+                // envelop.up(frequency,vel)
             };
 
 
 
 
-            self.keyDown = function (frequency,vel) {
- 
+            self.keyDown = function (frequency, vel) {
+
                 if (self.osc) {
+
+
+
                     self.osc.frequency.value = frequency
 
                 }
-
-                envelop.down(frequency,vel)
-                    //  console.log(note, frequency)
+                for (var env in envelopArray) {
+                    envelopArray[env].down(frequency, vel/100)
+                }
+                //               envelop.down(frequency,vel)
+                //  console.log(note, frequency)
 
             };
 

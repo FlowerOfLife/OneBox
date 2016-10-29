@@ -1,1 +1,189 @@
-{"devices":{"dashboard1Box":{"name":"dashboard1Box","type":"dashboard","sdkTop":"1px","sdkLeft":"1px","guiTop":"88px","guiLeft":"10px","parentBox":"","currentView":"SdkView","isShowInGui":true},"dashboard54978":{"name":"dashboard54978","type":"dashboard","sdkTop":"49px","sdkLeft":"475px","parentBox":"dashboard1Box","currentView":"GuiEditor","height":410},"lineSequencer9733":{"name":"lineSequencer9733","type":"lineSequencer","sdkTop":"10px","sdkLeft":"10px","guiTop":"22px","guiLeft":"9px","parentBox":"dashboard54978","currentView":"sdk","isShowInGui":true},"gain13733":{"name":"gain13733","type":"gain","sdkTop":"722px","sdkLeft":"1339px","guiTop":"511px","guiLeft":"126px","parentBox":"dashboard54978","currentView":"sdk","isShowInGui":true},"buffer40881":{"file":"kick-808.wav","name":"buffer40881","type":"buffer","sdkTop":"32px","sdkLeft":"522px","guiTop":"10px","guiLeft":"10px","parentBox":"dashboard54978","currentView":"sdk"},"buffer74174":{"file":"tom-808.wav","name":"buffer74174","type":"buffer","sdkTop":"36px","sdkLeft":"863px","guiTop":"10px","guiLeft":"10px","parentBox":"dashboard54978","currentView":"sdk"},"buffer72247":{"file":"snare-808.wav","name":"buffer72247","type":"buffer","sdkTop":"575px","sdkLeft":"510px","guiTop":"10px","guiLeft":"10px","parentBox":"dashboard54978","currentView":"sdk"},"buffer47431":{"file":"hihat-808.wav","name":"buffer47431","type":"buffer","sdkTop":"301px","sdkLeft":"832px","guiTop":"10px","guiLeft":"10px","parentBox":"dashboard54978","currentView":"sdk"},"buffer33547":{"file":"perc-808.wav","name":"buffer33547","type":"buffer","sdkTop":"299px","sdkLeft":"478px","guiTop":"10px","guiLeft":"10px","parentBox":"dashboard54978","currentView":"sdk"},"visualiser63339":{"name":"visualiser63339","type":"visualiser","sdkTop":"396px","sdkLeft":"10px","guiTop":"407px","guiLeft":"10px","parentBox":"dashboard54978","currentView":"sdk","isShowInGui":true},"audioDestination83613":{"name":"audioDestination83613","type":"audioDestination","sdkTop":"125px","sdkLeft":"1270px","parentBox":"dashboard1Box","currentView":"sdk"}},"connections":{"lineSequencer9733upDown_Ch0OUTbuffer40881IN":{"source":"lineSequencer9733upDown_Ch0OUT","target":"buffer40881IN"},"lineSequencer9733upDown_Ch1OUTbuffer47431IN":{"source":"lineSequencer9733upDown_Ch1OUT","target":"buffer47431IN"},"lineSequencer9733upDown_Ch2OUTbuffer33547IN":{"source":"lineSequencer9733upDown_Ch2OUT","target":"buffer33547IN"},"lineSequencer9733upDown_Ch3OUTbuffer74174IN":{"source":"lineSequencer9733upDown_Ch3OUT","target":"buffer74174IN"},"lineSequencer9733upDown_Ch4OUTbuffer72247IN":{"source":"lineSequencer9733upDown_Ch4OUT","target":"buffer72247IN"},"buffer40881OUTgain13733IN":{"source":"buffer40881OUT","target":"gain13733IN"},"buffer47431OUTgain13733IN":{"source":"buffer47431OUT","target":"gain13733IN"},"buffer33547OUTgain13733IN":{"source":"buffer33547OUT","target":"gain13733IN"},"buffer74174OUTgain13733IN":{"source":"buffer74174OUT","target":"gain13733IN"},"buffer72247OUTgain13733IN":{"source":"buffer72247OUT","target":"gain13733IN"},"gain13733OUTcontext.destinationIN":{"source":"gain13733OUT","target":"context.destinationIN"},"visualiser63339OUTgain13733IN":{"source":"visualiser63339OUT","target":"gain13733IN"}},"patchValues":{"knobs":{"dial1":272,"dial2":340,"dial3":400,"dial4":380,"dial5":384,"dial6":408,"dial7":552,"dial8":636,"dial9":388,"dial10":380,"gain13733Value":0,"gain13733Value02":1.272,"dial13":0,"dial14":0,"dial15":0,"dial16":0,"dial17":0},"files":{"LoadInstrument":"","buffer40881fileId":"","buffer74174fileId":"","buffer72247fileId":"","buffer47431fileId":"","buffer33547fileId":""}}}
+{
+    "devices": {
+
+        "dashboard54978": {
+            "name": "dashboard54978",
+            "type": "dashboard",
+            "sdkTop": "49px",
+            "sdkLeft": "475px",
+            "parentBox": "dashboard1Box",
+            "currentView": "GuiEditor",
+            "height": 410
+        },
+        "lineSequencer9733": {
+            "name": "lineSequencer9733",
+            "type": "lineSequencer",
+            "sdkTop": "10px",
+            "sdkLeft": "10px",
+            "guiTop": "22px",
+            "guiLeft": "9px",
+            "parentBox": "dashboard54978",
+            "currentView": "sdk",
+            "isShowInGui": true
+        },
+        "gain13733": {
+            "name": "gain13733",
+            "type": "gain",
+            "sdkTop": "722px",
+            "sdkLeft": "1339px",
+            "guiTop": "511px",
+            "guiLeft": "126px",
+            "parentBox": "dashboard54978",
+            "currentView": "sdk",
+            "isShowInGui": true
+        },
+        "buffer40881": {
+            "file": "kick-808.wav",
+            "name": "buffer40881",
+            "type": "buffer",
+            "sdkTop": "32px",
+            "sdkLeft": "522px",
+            "guiTop": "10px",
+            "guiLeft": "10px",
+            "parentBox": "dashboard54978",
+            "currentView": "sdk"
+        },
+        "buffer74174": {
+            "file": "tom-808.wav",
+            "name": "buffer74174",
+            "type": "buffer",
+            "sdkTop": "36px",
+            "sdkLeft": "863px",
+            "guiTop": "10px",
+            "guiLeft": "10px",
+            "parentBox": "dashboard54978",
+            "currentView": "sdk"
+        },
+        "buffer72247": {
+            "file": "snare-808.wav",
+            "name": "buffer72247",
+            "type": "buffer",
+            "sdkTop": "575px",
+            "sdkLeft": "510px",
+            "guiTop": "10px",
+            "guiLeft": "10px",
+            "parentBox": "dashboard54978",
+            "currentView": "sdk"
+        },
+        "buffer47431": {
+            "file": "hihat-808.wav",
+            "name": "buffer47431",
+            "type": "buffer",
+            "sdkTop": "301px",
+            "sdkLeft": "832px",
+            "guiTop": "10px",
+            "guiLeft": "10px",
+            "parentBox": "dashboard54978",
+            "currentView": "sdk"
+        },
+        "buffer33547": {
+            "file": "perc-808.wav",
+            "name": "buffer33547",
+            "type": "buffer",
+            "sdkTop": "299px",
+            "sdkLeft": "478px",
+            "guiTop": "10px",
+            "guiLeft": "10px",
+            "parentBox": "dashboard54978",
+            "currentView": "sdk"
+        },
+        "visualiser63339": {
+            "name": "visualiser63339",
+            "type": "visualiser",
+            "sdkTop": "396px",
+            "sdkLeft": "10px",
+            "guiTop": "407px",
+            "guiLeft": "10px",
+            "parentBox": "dashboard54978",
+            "currentView": "sdk",
+            "isShowInGui": true
+        },
+        "audioDestination83613": {
+            "name": "audioDestination83613",
+            "type": "audioDestination",
+            "sdkTop": "125px",
+            "sdkLeft": "1270px",
+            "parentBox": "dashboard1Box",
+            "currentView": "sdk"
+        }
+    },
+    "connections": {
+        "lineSequencer9733upDown_Ch0OUTbuffer40881IN": {
+            "source": "lineSequencer9733upDown_Ch0OUT",
+            "target": "buffer40881IN"
+        },
+        "lineSequencer9733upDown_Ch1OUTbuffer47431IN": {
+            "source": "lineSequencer9733upDown_Ch1OUT",
+            "target": "buffer47431IN"
+        },
+        "lineSequencer9733upDown_Ch2OUTbuffer33547IN": {
+            "source": "lineSequencer9733upDown_Ch2OUT",
+            "target": "buffer33547IN"
+        },
+        "lineSequencer9733upDown_Ch3OUTbuffer74174IN": {
+            "source": "lineSequencer9733upDown_Ch3OUT",
+            "target": "buffer74174IN"
+        },
+        "lineSequencer9733upDown_Ch4OUTbuffer72247IN": {
+            "source": "lineSequencer9733upDown_Ch4OUT",
+            "target": "buffer72247IN"
+        },
+        "buffer40881OUTgain13733IN": {
+            "source": "buffer40881OUT",
+            "target": "gain13733IN"
+        },
+        "buffer47431OUTgain13733IN": {
+            "source": "buffer47431OUT",
+            "target": "gain13733IN"
+        },
+        "buffer33547OUTgain13733IN": {
+            "source": "buffer33547OUT",
+            "target": "gain13733IN"
+        },
+        "buffer74174OUTgain13733IN": {
+            "source": "buffer74174OUT",
+            "target": "gain13733IN"
+        },
+        "buffer72247OUTgain13733IN": {
+            "source": "buffer72247OUT",
+            "target": "gain13733IN"
+        },
+        "gain13733OUTcontext.destinationIN": {
+            "source": "gain13733OUT",
+            "target": "context.destinationIN"
+        },
+        "visualiser63339OUTgain13733IN": {
+            "source": "visualiser63339OUT",
+            "target": "gain13733IN"
+        }
+    },
+    "patchValues": {
+        "knobs": {
+            "dial1": 272,
+            "dial2": 340,
+            "dial3": 400,
+            "dial4": 380,
+            "dial5": 384,
+            "dial6": 408,
+            "dial7": 552,
+            "dial8": 636,
+            "dial9": 388,
+            "dial10": 380,
+            "gain13733Value": 0,
+            "gain13733Value02": 1.272,
+            "dial13": 0,
+            "dial14": 0,
+            "dial15": 0,
+            "dial16": 0,
+            "dial17": 0
+        },
+        "files": {
+            "LoadInstrument": "",
+            "buffer40881fileId": "",
+            "buffer74174fileId": "",
+            "buffer72247fileId": "",
+            "buffer47431fileId": "",
+            "buffer33547fileId": ""
+        }
+    }
+}

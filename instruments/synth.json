@@ -1,0 +1,138 @@
+{
+    "devices": {
+
+        "dashboard1Synth": {
+            "name": "dashboard1Synth",
+            "type": "dashboard",
+            "sdkTop": "1px",
+            "sdkLeft": "1px",
+            "guiTop": "88px",
+            "guiLeft": "10px",
+            "parentBox": "dashboard1Box",
+            "currentView": "GuiEditor",
+            "height": 435,
+            "isShowInGui": true
+        },
+        "osc94257": {
+            "name": "osc94257",
+            "type": "osc",
+            "sdkTop": "213px",
+            "sdkLeft": "882px",
+            "guiTop": "504px",
+            "guiLeft": "189px",
+            "parentBox": "dashboard1Synth",
+            "currentView": "sdk",
+            "isShowInGui": true
+        },
+        "osc96773": {
+            "name": "osc96773",
+            "type": "osc",
+            "sdkTop": "465px",
+            "sdkLeft": "631px",
+            "guiTop": "504px",
+            "guiLeft": "27px",
+            "parentBox": "dashboard1Synth",
+            "currentView": "sdk",
+            "isShowInGui": true
+        },
+        "gain25660": {
+            "name": "gain25660",
+            "type": "gain",
+            "sdkTop": "224px",
+            "sdkLeft": "639px",
+            "guiTop": "282px",
+            "guiLeft": "277px",
+            "parentBox": "dashboard1Synth",
+            "currentView": "sdk",
+            "isShowInGui": true
+        },
+        "envelope38787": {
+            "name": "envelope38787",
+            "type": "envelope",
+            "sdkTop": "221px",
+            "sdkLeft": "1129px",
+            "guiTop": "341px",
+            "guiLeft": "48px",
+            "parentBox": "dashboard1Synth",
+            "currentView": "sdk",
+            "isShowInGui": true
+        },
+        "simpleSequencer15538": {
+            "name": "simpleSequencer15538",
+            "type": "simpleSequencer",
+            "sdkTop": "198px",
+            "sdkLeft": "260px",
+            "guiTop": "19px",
+            "guiLeft": "37px",
+            "parentBox": "dashboard1Synth",
+            "currentView": "sdk",
+            "isShowInGui": true
+        },
+        "visualiser17051": {
+            "name": "visualiser17051",
+            "type": "visualiser",
+            "sdkTop": "539px",
+            "sdkLeft": "1093px",
+            "guiTop": "10px",
+            "guiLeft": "10px",
+            "parentBox": "dashboard1Synth",
+            "currentView": "sdk"
+        },
+        "audioDestination17789": {
+            "name": "audioDestination17789",
+            "type": "audioDestination",
+            "sdkTop": "128px",
+            "sdkLeft": "1282px",
+            "guiTop": "10px",
+            "guiLeft": "10px",
+            "parentBox": "dashboard1Synth",
+            "currentView": "sdk"
+        }
+    },
+    "connections": {
+        "osc94257OUTenvelope38787IN": {
+            "source": "osc94257OUT",
+            "target": "envelope38787IN"
+        },
+        "visualiser17051OUTenvelope38787IN": {
+            "source": "visualiser17051OUT",
+            "target": "envelope38787IN"
+        },
+        "simpleSequencer15538upDownOUTenvelope38787IN": {
+            "source": "simpleSequencer15538upDownOUT",
+            "target": "envelope38787IN"
+        },
+        "gain25660OUTosc94257.frequencyIN": {
+            "source": "gain25660OUT",
+            "target": "osc94257.frequencyIN"
+        },
+        "osc96773OUTgain25660IN": {
+            "source": "osc96773OUT",
+            "target": "gain25660IN"
+        },
+        "envelope38787OUTcontext.destinationIN": {
+            "source": "envelope38787OUT",
+            "target": "context.destinationIN"
+        },
+        "simpleSequencer15538FreqOUTosc94257IN": {
+            "source": "simpleSequencer15538FreqOUT",
+            "target": "osc94257IN"
+        }
+    },
+    "patchValues": {
+        "knobs": {
+            "osc94257Freq": 0,
+            "osc94257Freq2": 24,
+            "osc96773Freq": 240,
+            "osc96773Freq2": 0,
+            "gain25660Value": 660,
+            "gain25660Value02": 0,
+            "envelope38787ATTACK": 0.786,
+            "envelope38787Realeast": 0.196,
+            "envelope38787level": 1
+        },
+        "files": {
+            "LoadInstrument": "synth.json"
+        }
+    }
+}

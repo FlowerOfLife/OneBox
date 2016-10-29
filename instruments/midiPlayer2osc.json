@@ -1,0 +1,155 @@
+{
+    "devices": {
+        "midiPlayer2osc": {
+            "name": "midiPlayer2osc",
+            "type": "dashboard",
+            "sdkTop": "1px",
+            "sdkLeft": "1px",
+            "guiTop": "88px",
+            "guiLeft": "10px",
+            "parentBox": "",
+            "currentView": "GuiEditor",
+            "height": 462,
+            "isShowInGui": true
+        },
+        "polyOsc68859": {
+            "name": "polyOsc68859",
+            "type": "polyOsc",
+            "sdkTop": "55px",
+            "sdkLeft": "441px",
+            "guiTop": "10px",
+            "guiLeft": "10px",
+            "parentBox": "midiPlayer2osc",
+            "currentView": "sdk"
+        },
+        "polyOsc22513": {
+            "name": "polyOsc22513",
+            "type": "polyOsc",
+            "sdkTop": "424px",
+            "sdkLeft": "443px",
+            "guiTop": "10px",
+            "guiLeft": "10px",
+            "parentBox": "midiPlayer2osc",
+            "currentView": "sdk"
+        },
+        "gain10859": {
+            "name": "gain10859",
+            "type": "gain",
+            "sdkTop": "137px",
+            "sdkLeft": "826px",
+            "guiTop": "240px",
+            "guiLeft": "69px",
+            "parentBox": "midiPlayer2osc",
+            "currentView": "sdk",
+            "isShowInGui": true
+        },
+        "gain70255": {
+            "name": "gain70255",
+            "type": "gain",
+            "sdkTop": "394px",
+            "sdkLeft": "830px",
+            "guiTop": "232px",
+            "guiLeft": "275px",
+            "parentBox": "midiPlayer2osc",
+            "currentView": "sdk",
+            "isShowInGui": true
+        },
+        "visualiser2893": {
+            "name": "visualiser2893",
+            "type": "visualiser",
+            "sdkTop": "155px",
+            "sdkLeft": "1218px",
+            "guiTop": "415px",
+            "guiLeft": "62px",
+            "parentBox": "midiPlayer2osc",
+            "currentView": "sdk",
+            "isShowInGui": true
+        },
+        "visualiser37343": {
+            "name": "visualiser37343",
+            "type": "visualiser",
+            "sdkTop": "311px",
+            "sdkLeft": "1218px",
+            "guiTop": "551px",
+            "guiLeft": "59px",
+            "parentBox": "midiPlayer2osc",
+            "currentView": "sdk",
+            "isShowInGui": true
+        },
+        "midiPlayer56702": {
+            "name": "midiPlayer56702",
+            "type": "midiPlayer",
+            "sdkTop": "193px",
+            "sdkLeft": "58px",
+            "guiTop": "35px",
+            "guiLeft": "53px",
+            "parentBox": "midiPlayer2osc",
+            "currentView": "sdk",
+            "isShowInGui": true
+        },
+        "audioDestination36990": {
+            "name": "audioDestination36990",
+            "type": "audioDestination",
+            "sdkTop": "523px",
+            "sdkLeft": "1183px",
+            "guiTop": "10px",
+            "guiLeft": "10px",
+            "parentBox": "midiPlayer2osc",
+            "currentView": "sdk"
+        }
+    },
+    "connections": {
+        "polyOsc68859OUTgain10859IN": {
+            "source": "polyOsc68859OUT",
+            "target": "gain10859IN"
+        },
+        "polyOsc22513OUTgain70255IN": {
+            "source": "polyOsc22513OUT",
+            "target": "gain70255IN"
+        },
+        "visualiser37343OUTgain70255IN": {
+            "source": "visualiser37343OUT",
+            "target": "gain70255IN"
+        },
+        "visualiser2893OUTgain10859IN": {
+            "source": "visualiser2893OUT",
+            "target": "gain10859IN"
+        },
+        "midiPlayer56702upDownOUTpolyOsc68859IN": {
+            "source": "midiPlayer56702upDownOUT",
+            "target": "polyOsc68859IN"
+        },
+        "midiPlayer56702upDownOUTpolyOsc22513IN": {
+            "source": "midiPlayer56702upDownOUT",
+            "target": "polyOsc22513IN"
+        },
+        "gain10859OUTcontext.destinationIN": {
+            "source": "gain10859OUT",
+            "target": "context.destinationIN"
+        },
+        "gain70255OUTcontext.destinationIN": {
+            "source": "gain70255OUT",
+            "target": "context.destinationIN"
+        }
+    },
+    "patchValues": {
+        "knobs": {
+            "polyOsc68859Freq": 0,
+            "polyOsc68859Freq2": 0,
+            "polyOsc68859number": 432,
+            "polyOsc68859ATTACK": 0,
+            "polyOsc22513Freq": 0,
+            "polyOsc22513Freq2": 0,
+            "polyOsc22513number": 432,
+            "polyOsc22513ATTACK": 0,
+            "gain10859Value": 0,
+            "gain10859Value02": 0.232,
+            "gain70255Value": 0,
+            "gain70255Value02": 0.648
+        },
+        "files": {
+            "LoadInstrument": "",
+            "midiPlayer56702fileId": "mond_1.mid"
+        }
+    }
+}

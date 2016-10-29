@@ -43,7 +43,7 @@ class piano extends boxController {
 
                 }
                 
-                envelop.down(frequency)
+                envelop.down(frequency,0.5)
                 console.log(note, frequency)
 
             };

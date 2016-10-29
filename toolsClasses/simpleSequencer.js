@@ -35,13 +35,13 @@ class simpleSequencer extends boxController {
         setTimeout(function () {
             var matrix1 = nx.add('matrix', {
                     parent: name + 'id',
-                    w: 200,
+                    w: 400,
                     h: 200
                 })
                 //console.log(matr)
 
             console.log('hereeeeeeeeeeeeeeeee')
-            matrix1.col = 16;
+            matrix1.col = 32;
             matrix1.row = 16;
             matrix1.init();
 
@@ -81,7 +81,7 @@ class simpleSequencer extends boxController {
             self.keyDown(freq);
             setTimeout(function () {
                 self.keyUp(freq);
-            }, 500)
+            }, 100)
         }
         //functionalety
         window[self.getName() + "upDown"] = {}
@@ -89,19 +89,19 @@ class simpleSequencer extends boxController {
             console.log(self.keyboard)
 
             self.keyDown = function (frequency) {
-                console.log(1111111111)
-                if(frequency){
-                self.osc = frequency
-                }
-               
-                envelop.up()
-                console.log(frequency)
 
+//  console.log(note, frequency)
+                envelop.down(frequency)
             };
 
             self.keyUp = function (frequency) {
-              //  console.log(note, frequency)
-                envelop.down(frequency)
+                              console.log(1111111111)
+                if(frequency){
+                self.osc.frequency.value = frequency
+                }
+               
+                envelop.up(frequency)
+                console.log(frequency)
             };
 
 
