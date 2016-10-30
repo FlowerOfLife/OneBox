@@ -1,0 +1,39 @@
+{
+    "devices": {
+        "dashboard1Box": {
+            "name": "dashboard1Box",
+            "type": "dashboard",
+            "sdkTop": "1px",
+            "sdkLeft": "1px",
+            "guiTop": "88px",
+            "guiLeft": "10px",
+            "parentBox": "",
+            "currentView": "SdkView",
+            "isShowInGui": true
+        },
+        "toneFmSynth96603": {
+            "name": "toneFmSynth96603",
+            "type": "toneFmSynth",
+            "parentBox": "dashboard1Box",
+            "currentView": "sdk"
+        },
+        "monoSequenecer96275": {
+            "name": "monoSequenecer96275",
+            "type": "monoSequenecer",
+            "parentBox": "dashboard1Box",
+            "currentView": "sdk"
+        }
+    },
+    "connections": {
+        "monoSequenecer96275upDownOUTtoneFmSynth96603IN": {
+            "source": "monoSequenecer96275upDownOUT",
+            "target": "toneFmSynth96603IN"
+        }
+    },
+    "patchValues": {
+        "knobs": {},
+        "files": {
+            "LoadInstrument": ""
+        }
+    }
+}

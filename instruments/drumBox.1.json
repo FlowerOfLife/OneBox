@@ -1,1 +1,361 @@
-{"devices":{"dashboard1Box":{"name":"dashboard1Box","type":"dashboard","sdkTop":"1px","sdkLeft":"1px","guiTop":"88px","guiLeft":"10px","parentBox":"","currentView":"SdkView","isShowInGui":true},"dashboard1Synth":{"name":"dashboard1Synth","type":"dashboard","sdkTop":"1px","sdkLeft":"1px","guiTop":"88px","guiLeft":"10px","parentBox":"dashboard1Box","currentView":"GuiEditor","height":486,"isShowInGui":true},"osc94257":{"name":"osc94257","type":"osc","sdkTop":"213px","sdkLeft":"882px","guiTop":"510px","guiLeft":"328px","parentBox":"dashboard1Synth","currentView":"sdk","isShowInGui":true},"osc96773":{"name":"osc96773","type":"osc","sdkTop":"465px","sdkLeft":"631px","guiTop":"508px","guiLeft":"167px","parentBox":"dashboard1Synth","currentView":"sdk","isShowInGui":true},"gain25660":{"name":"gain25660","type":"gain","sdkTop":"224px","sdkLeft":"639px","guiTop":"510px","guiLeft":"10px","parentBox":"dashboard1Synth","currentView":"sdk","isShowInGui":true},"envelope38787":{"name":"envelope38787","type":"envelope","sdkTop":"243px","sdkLeft":"1203px","guiTop":"341px","guiLeft":"48px","parentBox":"dashboard1Synth","currentView":"sdk","isShowInGui":true},"simpleSequencer15538":{"name":"simpleSequencer15538","type":"simpleSequencer","sdkTop":"150px","sdkLeft":"322px","guiTop":"27px","guiLeft":"10px","parentBox":"dashboard1Synth","currentView":"sdk","isShowInGui":true},"visualiser17051":{"name":"visualiser17051","type":"visualiser","sdkTop":"701px","sdkLeft":"155px","guiTop":"762px","guiLeft":"-5px","parentBox":"dashboard1Synth","currentView":"sdk","isShowInGui":true},"filter14409":{"name":"filter14409","type":"filter","sdkTop":"524px","sdkLeft":"956px","guiTop":"207px","guiLeft":"272px","parentBox":"dashboard1Synth","currentView":"sdk","isShowInGui":true},"gain96810":{"name":"gain96810","type":"gain","sdkTop":"66px","sdkLeft":"1082px","guiTop":"26px","guiLeft":"293px","parentBox":"dashboard1Synth","currentView":"sdk","isShowInGui":true},"audioDestination11728":{"name":"audioDestination11728","type":"audioDestination","sdkTop":"139px","sdkLeft":"1461px","guiTop":"10px","guiLeft":"10px","parentBox":"dashboard1Synth","currentView":"sdk"},"dashboard54978":{"name":"dashboard54978","type":"dashboard","sdkTop":"49px","sdkLeft":"475px","parentBox":"dashboard1Box","currentView":"GuiEditor","height":410},"lineSequencer9733":{"name":"lineSequencer9733","type":"lineSequencer","sdkTop":"10px","sdkLeft":"10px","guiTop":"22px","guiLeft":"9px","parentBox":"dashboard54978","currentView":"sdk","isShowInGui":true},"gain13733":{"name":"gain13733","type":"gain","sdkTop":"621px","sdkLeft":"1358px","guiTop":"511px","guiLeft":"126px","parentBox":"dashboard54978","currentView":"sdk","isShowInGui":true},"buffer40881":{"file":"kick-808.wav","name":"buffer40881","type":"buffer","sdkTop":"32px","sdkLeft":"522px","guiTop":"10px","guiLeft":"10px","parentBox":"dashboard54978","currentView":"sdk"},"buffer74174":{"file":"tom-808.wav","name":"buffer74174","type":"buffer","sdkTop":"36px","sdkLeft":"863px","guiTop":"10px","guiLeft":"10px","parentBox":"dashboard54978","currentView":"sdk"},"buffer72247":{"file":"snare-808.wav","name":"buffer72247","type":"buffer","sdkTop":"575px","sdkLeft":"510px","guiTop":"10px","guiLeft":"10px","parentBox":"dashboard54978","currentView":"sdk"},"buffer47431":{"file":"hihat-808.wav","name":"buffer47431","type":"buffer","sdkTop":"301px","sdkLeft":"832px","guiTop":"10px","guiLeft":"10px","parentBox":"dashboard54978","currentView":"sdk"},"buffer33547":{"file":"perc-808.wav","name":"buffer33547","type":"buffer","sdkTop":"299px","sdkLeft":"478px","guiTop":"10px","guiLeft":"10px","parentBox":"dashboard54978","currentView":"sdk"},"visualiser63339":{"name":"visualiser63339","type":"visualiser","sdkTop":"396px","sdkLeft":"10px","guiTop":"407px","guiLeft":"10px","parentBox":"dashboard54978","currentView":"sdk","isShowInGui":true},"audioDestination31931":{"name":"audioDestination31931","type":"audioDestination","sdkTop":"355px","sdkLeft":"1544px","guiTop":"10px","guiLeft":"10px","parentBox":"dashboard54978","currentView":"sdk"}},"connections":{"simpleSequencer15538upDownOUTenvelope38787IN":{"source":"simpleSequencer15538upDownOUT","target":"envelope38787IN"},"gain25660OUTosc94257.frequencyIN":{"source":"gain25660OUT","target":"osc94257.frequencyIN"},"osc96773OUTgain25660IN":{"source":"osc96773OUT","target":"gain25660IN"},"simpleSequencer15538FreqOUTosc94257IN":{"source":"simpleSequencer15538FreqOUT","target":"osc94257IN"},"lineSequencer9733upDown_Ch0OUTbuffer40881IN":{"source":"lineSequencer9733upDown_Ch0OUT","target":"buffer40881IN"},"lineSequencer9733upDown_Ch1OUTbuffer47431IN":{"source":"lineSequencer9733upDown_Ch1OUT","target":"buffer47431IN"},"lineSequencer9733upDown_Ch2OUTbuffer33547IN":{"source":"lineSequencer9733upDown_Ch2OUT","target":"buffer33547IN"},"lineSequencer9733upDown_Ch3OUTbuffer74174IN":{"source":"lineSequencer9733upDown_Ch3OUT","target":"buffer74174IN"},"lineSequencer9733upDown_Ch4OUTbuffer72247IN":{"source":"lineSequencer9733upDown_Ch4OUT","target":"buffer72247IN"},"buffer40881OUTgain13733IN":{"source":"buffer40881OUT","target":"gain13733IN"},"buffer47431OUTgain13733IN":{"source":"buffer47431OUT","target":"gain13733IN"},"buffer33547OUTgain13733IN":{"source":"buffer33547OUT","target":"gain13733IN"},"buffer74174OUTgain13733IN":{"source":"buffer74174OUT","target":"gain13733IN"},"buffer72247OUTgain13733IN":{"source":"buffer72247OUT","target":"gain13733IN"},"visualiser63339OUTgain13733IN":{"source":"visualiser63339OUT","target":"gain13733IN"},"osc94257OUTfilter14409IN":{"source":"osc94257OUT","target":"filter14409IN"},"filter14409OUTenvelope38787IN":{"source":"filter14409OUT","target":"envelope38787IN"},"gain96810OUTcontext.destinationIN":{"source":"gain96810OUT","target":"context.destinationIN"},"envelope38787OUTgain96810IN":{"source":"envelope38787OUT","target":"gain96810IN"},"visualiser17051OUTgain96810IN":{"source":"visualiser17051OUT","target":"gain96810IN"},"gain13733OUTcontext.destinationIN":{"source":"gain13733OUT","target":"context.destinationIN"}},"patchValues":{"knobs":{"osc94257Freq":428,"osc94257Freq2":24,"osc96773Freq":92,"osc96773Freq2":0.288,"gain25660Value":288,"gain25660Value02":0.048,"envelope38787ATTACK":0.418,"envelope38787Realeast":0.443,"envelope38787level":0.426,"gain96810Value":0,"gain96810Value02":0,"dial12":492,"dial13":476,"dial14":200,"dial15":284,"dial16":136,"dial17":308,"dial18":152,"dial19":308,"dial20":0,"dial21":0,"gain13733Value":0,"gain13733Value02":0,"dial24":0,"dial25":0,"dial26":0,"dial27":0,"dial28":0,"dial29":0,"dial30":0,"dial31":0},"files":{"LoadInstrument":"","buffer40881fileId":"","buffer74174fileId":"","buffer72247fileId":"","buffer47431fileId":"","buffer33547fileId":""}}}
+{
+    "devices": {
+        "dashboard1Box": {
+            "name": "dashboard1Box",
+            "type": "dashboard",
+            "sdkTop": "1px",
+            "sdkLeft": "1px",
+            "guiTop": "88px",
+            "guiLeft": "10px",
+            "parentBox": "",
+            "currentView": "SdkView",
+            "isShowInGui": true
+        },
+        "dashboard1Synth": {
+            "name": "dashboard1Synth",
+            "type": "dashboard",
+            "sdkTop": "1px",
+            "sdkLeft": "1px",
+            "guiTop": "88px",
+            "guiLeft": "10px",
+            "parentBox": "dashboard1Box",
+            "currentView": "GuiEditor",
+            "height": 486,
+            "isShowInGui": true
+        },
+        "osc94257": {
+            "name": "osc94257",
+            "type": "osc",
+            "sdkTop": "213px",
+            "sdkLeft": "882px",
+            "guiTop": "510px",
+            "guiLeft": "328px",
+            "parentBox": "dashboard1Synth",
+            "currentView": "sdk",
+            "isShowInGui": true
+        },
+        "osc96773": {
+            "name": "osc96773",
+            "type": "osc",
+            "sdkTop": "465px",
+            "sdkLeft": "631px",
+            "guiTop": "508px",
+            "guiLeft": "167px",
+            "parentBox": "dashboard1Synth",
+            "currentView": "sdk",
+            "isShowInGui": true
+        },
+        "gain25660": {
+            "name": "gain25660",
+            "type": "gain",
+            "sdkTop": "224px",
+            "sdkLeft": "639px",
+            "guiTop": "510px",
+            "guiLeft": "10px",
+            "parentBox": "dashboard1Synth",
+            "currentView": "sdk",
+            "isShowInGui": true
+        },
+        "envelope38787": {
+            "name": "envelope38787",
+            "type": "envelope",
+            "sdkTop": "243px",
+            "sdkLeft": "1203px",
+            "guiTop": "341px",
+            "guiLeft": "48px",
+            "parentBox": "dashboard1Synth",
+            "currentView": "sdk",
+            "isShowInGui": true
+        },
+        "simpleSequencer15538": {
+            "name": "simpleSequencer15538",
+            "type": "simpleSequencer",
+            "sdkTop": "150px",
+            "sdkLeft": "322px",
+            "guiTop": "27px",
+            "guiLeft": "10px",
+            "parentBox": "dashboard1Synth",
+            "currentView": "sdk",
+            "isShowInGui": true
+        },
+        "visualiser17051": {
+            "name": "visualiser17051",
+            "type": "visualiser",
+            "sdkTop": "701px",
+            "sdkLeft": "155px",
+            "guiTop": "762px",
+            "guiLeft": "-5px",
+            "parentBox": "dashboard1Synth",
+            "currentView": "sdk",
+            "isShowInGui": true
+        },
+        "filter14409": {
+            "name": "filter14409",
+            "type": "filter",
+            "sdkTop": "524px",
+            "sdkLeft": "956px",
+            "guiTop": "207px",
+            "guiLeft": "272px",
+            "parentBox": "dashboard1Synth",
+            "currentView": "sdk",
+            "isShowInGui": true
+        },
+        "gain96810": {
+            "name": "gain96810",
+            "type": "gain",
+            "sdkTop": "66px",
+            "sdkLeft": "1082px",
+            "guiTop": "26px",
+            "guiLeft": "293px",
+            "parentBox": "dashboard1Synth",
+            "currentView": "sdk",
+            "isShowInGui": true
+        },
+        "audioDestination11728": {
+            "name": "audioDestination11728",
+            "type": "audioDestination",
+            "sdkTop": "139px",
+            "sdkLeft": "1461px",
+            "guiTop": "10px",
+            "guiLeft": "10px",
+            "parentBox": "dashboard1Synth",
+            "currentView": "sdk"
+        },
+        "dashboard54978": {
+            "name": "dashboard54978",
+            "type": "dashboard",
+            "sdkTop": "49px",
+            "sdkLeft": "475px",
+            "parentBox": "dashboard1Box",
+            "currentView": "GuiEditor",
+            "height": 410
+        },
+        "lineSequencer9733": {
+            "name": "lineSequencer9733",
+            "type": "lineSequencer",
+            "sdkTop": "10px",
+            "sdkLeft": "10px",
+            "guiTop": "22px",
+            "guiLeft": "9px",
+            "parentBox": "dashboard54978",
+            "currentView": "sdk",
+            "isShowInGui": true
+        },
+        "gain13733": {
+            "name": "gain13733",
+            "type": "gain",
+            "sdkTop": "621px",
+            "sdkLeft": "1358px",
+            "guiTop": "511px",
+            "guiLeft": "126px",
+            "parentBox": "dashboard54978",
+            "currentView": "sdk",
+            "isShowInGui": true
+        },
+        "buffer40881": {
+            "file": "kick-808.wav",
+            "name": "buffer40881",
+            "type": "buffer",
+            "sdkTop": "32px",
+            "sdkLeft": "522px",
+            "guiTop": "10px",
+            "guiLeft": "10px",
+            "parentBox": "dashboard54978",
+            "currentView": "sdk"
+        },
+        "buffer74174": {
+            "file": "tom-808.wav",
+            "name": "buffer74174",
+            "type": "buffer",
+            "sdkTop": "36px",
+            "sdkLeft": "863px",
+            "guiTop": "10px",
+            "guiLeft": "10px",
+            "parentBox": "dashboard54978",
+            "currentView": "sdk"
+        },
+        "buffer72247": {
+            "file": "snare-808.wav",
+            "name": "buffer72247",
+            "type": "buffer",
+            "sdkTop": "575px",
+            "sdkLeft": "510px",
+            "guiTop": "10px",
+            "guiLeft": "10px",
+            "parentBox": "dashboard54978",
+            "currentView": "sdk"
+        },
+        "buffer47431": {
+            "file": "hihat-808.wav",
+            "name": "buffer47431",
+            "type": "buffer",
+            "sdkTop": "301px",
+            "sdkLeft": "832px",
+            "guiTop": "10px",
+            "guiLeft": "10px",
+            "parentBox": "dashboard54978",
+            "currentView": "sdk"
+        },
+        "buffer33547": {
+            "file": "perc-808.wav",
+            "name": "buffer33547",
+            "type": "buffer",
+            "sdkTop": "299px",
+            "sdkLeft": "478px",
+            "guiTop": "10px",
+            "guiLeft": "10px",
+            "parentBox": "dashboard54978",
+            "currentView": "sdk"
+        },
+        "visualiser63339": {
+            "name": "visualiser63339",
+            "type": "visualiser",
+            "sdkTop": "396px",
+            "sdkLeft": "10px",
+            "guiTop": "407px",
+            "guiLeft": "10px",
+            "parentBox": "dashboard54978",
+            "currentView": "sdk",
+            "isShowInGui": true
+        },
+        "audioDestination31931": {
+            "name": "audioDestination31931",
+            "type": "audioDestination",
+            "sdkTop": "355px",
+            "sdkLeft": "1544px",
+            "guiTop": "10px",
+            "guiLeft": "10px",
+            "parentBox": "dashboard54978",
+            "currentView": "sdk"
+        }
+    },
+    "connections": {
+        "simpleSequencer15538upDownOUTenvelope38787IN": {
+            "source": "simpleSequencer15538upDownOUT",
+            "target": "envelope38787IN"
+        },
+        "gain25660OUTosc94257.frequencyIN": {
+            "source": "gain25660OUT",
+            "target": "osc94257.frequencyIN"
+        },
+        "osc96773OUTgain25660IN": {
+            "source": "osc96773OUT",
+            "target": "gain25660IN"
+        },
+        "simpleSequencer15538FreqOUTosc94257IN": {
+            "source": "simpleSequencer15538FreqOUT",
+            "target": "osc94257IN"
+        },
+        "lineSequencer9733upDown_Ch0OUTbuffer40881IN": {
+            "source": "lineSequencer9733upDown_Ch0OUT",
+            "target": "buffer40881IN"
+        },
+        "lineSequencer9733upDown_Ch1OUTbuffer47431IN": {
+            "source": "lineSequencer9733upDown_Ch1OUT",
+            "target": "buffer47431IN"
+        },
+        "lineSequencer9733upDown_Ch2OUTbuffer33547IN": {
+            "source": "lineSequencer9733upDown_Ch2OUT",
+            "target": "buffer33547IN"
+        },
+        "lineSequencer9733upDown_Ch3OUTbuffer74174IN": {
+            "source": "lineSequencer9733upDown_Ch3OUT",
+            "target": "buffer74174IN"
+        },
+        "lineSequencer9733upDown_Ch4OUTbuffer72247IN": {
+            "source": "lineSequencer9733upDown_Ch4OUT",
+            "target": "buffer72247IN"
+        },
+        "buffer40881OUTgain13733IN": {
+            "source": "buffer40881OUT",
+            "target": "gain13733IN"
+        },
+        "buffer47431OUTgain13733IN": {
+            "source": "buffer47431OUT",
+            "target": "gain13733IN"
+        },
+        "buffer33547OUTgain13733IN": {
+            "source": "buffer33547OUT",
+            "target": "gain13733IN"
+        },
+        "buffer74174OUTgain13733IN": {
+            "source": "buffer74174OUT",
+            "target": "gain13733IN"
+        },
+        "buffer72247OUTgain13733IN": {
+            "source": "buffer72247OUT",
+            "target": "gain13733IN"
+        },
+        "visualiser63339OUTgain13733IN": {
+            "source": "visualiser63339OUT",
+            "target": "gain13733IN"
+        },
+        "osc94257OUTfilter14409IN": {
+            "source": "osc94257OUT",
+            "target": "filter14409IN"
+        },
+        "filter14409OUTenvelope38787IN": {
+            "source": "filter14409OUT",
+            "target": "envelope38787IN"
+        },
+        "gain96810OUTcontext.destinationIN": {
+            "source": "gain96810OUT",
+            "target": "context.destinationIN"
+        },
+        "envelope38787OUTgain96810IN": {
+            "source": "envelope38787OUT",
+            "target": "gain96810IN"
+        },
+        "visualiser17051OUTgain96810IN": {
+            "source": "visualiser17051OUT",
+            "target": "gain96810IN"
+        },
+        "gain13733OUTcontext.destinationIN": {
+            "source": "gain13733OUT",
+            "target": "context.destinationIN"
+        }
+    },
+    "patchValues": {
+        "knobs": {
+            "osc94257Freq": 428,
+            "osc94257Freq2": 24,
+            "osc96773Freq": 92,
+            "osc96773Freq2": 0.288,
+            "gain25660Value": 288,
+            "gain25660Value02": 0.048,
+            "envelope38787ATTACK": 0.418,
+            "envelope38787Realeast": 0.443,
+            "envelope38787level": 0.426,
+            "gain96810Value": 0,
+            "gain96810Value02": 0,
+            "dial12": 492,
+            "dial13": 476,
+            "dial14": 200,
+            "dial15": 284,
+            "dial16": 136,
+            "dial17": 308,
+            "dial18": 152,
+            "dial19": 308,
+            "dial20": 0,
+            "dial21": 0,
+            "gain13733Value": 0,
+            "gain13733Value02": 0,
+            "dial24": 0,
+            "dial25": 0,
+            "dial26": 0,
+            "dial27": 0,
+            "dial28": 0,
+            "dial29": 0,
+            "dial30": 0,
+            "dial31": 0
+        },
+        "files": {
+            "LoadInstrument": "",
+            "buffer40881fileId": "",
+            "buffer74174fileId": "",
+            "buffer72247fileId": "",
+            "buffer47431fileId": "",
+            "buffer33547fileId": ""
+        }
+    }
+}

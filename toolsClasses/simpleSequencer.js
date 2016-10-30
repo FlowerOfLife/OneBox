@@ -92,6 +92,9 @@ class simpleSequencer extends boxController {
 
 //  console.log(note, frequency)
                 envelop.down(frequency)
+                  setTimeout(function () {
+                envelop.up(frequency)
+            }, 100)
             };
 
             self.keyUp = function (frequency) {

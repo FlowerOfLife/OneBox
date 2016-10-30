@@ -14,77 +14,155 @@ class toneFmSynth extends boxController {
         var self = this
         var contentDiv = document.createElement('div');
         contentDiv.id = self.getName() + "conId";
+        var controlsDiv = document.createElement('div');
+        controlsDiv.id = self.getName() + "controlsId";
+        controlsDiv.style.height = '180px'
+        var keyboardDiv = document.createElement('div');
+        keyboardDiv.id = self.getName() + "keyboardDiv";
+        keyboardDiv.style.height = '80px'
+        contentDiv.appendChild(controlsDiv);
+        contentDiv.appendChild(keyboardDiv)
         var contentScript = document.createElement('script');
         var selectWaveForm = document.createElement('select');
 
-
-        var sine = document.createElement("option");
-        sine.text = "sine";
-        var Square = document.createElement("option");
-        Square.text = "square";
-        var Sawtooth = document.createElement("option");
-        Sawtooth.text = "sawtooth";
-        var Triangle = document.createElement("option");
-        Triangle.text = "triangle";
-        selectWaveForm.add(sine);
-        selectWaveForm.add(Square);
-        selectWaveForm.add(Sawtooth);
-        selectWaveForm.add(Triangle);
-        contentDiv.appendChild(contentScript)
-        contentDiv.appendChild(selectWaveForm)
-
-
-        var toneSynth = {}
-
-
-
-            $(function () {
-                var pannel = new Interface.Panel({
-                    container: document.body,
-                  //   width: $("#" + contentDiv.id).width()
-                });
-
-
-        setTimeout(function () {
-
-        var synth = new Tone.FMSynth({
-            "modulationIndex": 12.22,
-            "envelope": {
-                "attack": 0.01,
-                "decay": 0.2
+        var synth = new Tone.DuoSynth({
+            "vibratoAmount": 0.5,
+            "vibratoRate": 5,
+            "harmonicity": 1.5,
+            "voice0": {
+                "volume": -10,
+                "portamento": 0,
+                "oscillator": {
+                    "type": "sine"
+                },
+                "filterEnvelope": {
+                    "attack": 0.01,
+                    "decay": 0.0,
+                    "sustain": 1,
+                    "release": 0.5
+                },
+                "envelope": {
+                    "attack": 0.01,
+                    "decay": 0.0,
+                    "sustain": 1,
+                    "release": 0.5
+                }
             },
-            "modulation": {
-                "type": "square"
-            },
-            "modulationEnvelope": {
-                "attack": 0.2,
-                "decay": 0.01
+            "voice1": {
+                "volume": -10,
+                "portamento": 0,
+                "oscillator": {
+                    "type": "sine"
+                },
+                "filterEnvelope": {
+                    "attack": 0.01,
+                    "decay": 0.0,
+                    "sustain": 1,
+                    "release": 0.5
+                },
+                "envelope": {
+                    "attack": 0.01,
+                    "decay": 0.0,
+                    "sustain": 1,
+                    "release": 0.5
+                }
             }
         }).toMaster();
-                var sliderFm = new Interface.Slider({
-                    tone: synth,
-                    param: "modulationIndex",
-                    name: "mod index",
-                     width: $("#" + contentDiv.id).width(),
-                     height: 10,
-                    bounds: [.4, .35, .55, .3],
-                //    label: 'horizontal slider',
-                    isVertical: false,
-                 //   value: .5,
-                    max: 100
-                });
-pannel.background = 'black';
-                pannel.add(sliderFm)
-     
+        setTimeout(function () {
 
-                $("<div>", {
-                    "id": "Keyboard"
-                }).appendTo("#" + contentDiv.id);
+            $(function () {
 
+                //********************************************ENV 1
+                this.envelope = nx.add('envelope', {
+                    parent: self.getName() + 'freqGain',
+                    name: self.getName() + 'freqGaindial',
+                    w: 170,
+                    h: 90,
+                })
+                this.envelope.setMaxListeners(4)
+                this.envelope.label = 'envelope1'
+                this.envelope.on('*', function (data) {
+                    console.log(data, this)
+                    if (data.points[0] && data.points[1] && data.points[2] && data.points[3]) {
+                        console.log(data.points[0] && data.points[1] && data.points[2] && data.points[3])
+                        window[self.getName()].voice0.envelope.attack = data.points[0].y;
+                        window[self.getName()].voice0.envelope.decay = data.points[1].y
+                        window[self.getName()].voice0.envelope.sustain = data.points[2].y
+                        window[self.getName()].voice0.envelope.release = data.points[3].y
+                    }
+
+
+                    // toneFmSynth90147.voice0.filterEnvelope.attack
+                })
+            
+                //********************************************ENV 2
+                this.envelope2 = nx.add('envelope', {
+                    parent: self.getName() + 'freqGain',
+                    name: self.getName() + 'freqGaindia2',
+                    w: 170,
+                    h: 90,
+                })
+                this.envelope2.setMaxListeners(4)
+                this.envelope2.label = 'envelope2'
+                this.envelope2.on('*', function (data) {
+                    console.log(data, this)
+                    if (data.points[0] && data.points[1] && data.points[2] && data.points[3]) {
+                        console.log(data.points[0] && data.points[1] && data.points[2] && data.points[3])
+                        window[self.getName()].voice1.envelope.attack = data.points[0].y;
+                        window[self.getName()].voice1.envelope.decay = data.points[1].y
+                        window[self.getName()].voice1.envelope.sustain = data.points[2].y
+                        window[self.getName()].voice1.envelope.release = data.points[3].y
+                    }
+
+
+                    // toneFmSynth90147.voice0.filterEnvelope.attack
+                })
+    contentDiv.appendChild(document.createElement('br'));
+                //********************************************select
+                this.select = nx.add('select', {
+                    parent: self.getName() + 'freqGain',
+                    name: self.getName() + 'selectWave1',
+
+                })
+                this.select.choices = ['sine', 'square', 'triangle', 'sawtooth']
+
+
+                this.select.label = 'sice'
+                this.select.init()
+                this.select.on('*', function (data) {
+                    console.log(data.text)
+                    window[self.getName()].voice0.oscillator.type=data.text
+
+                    // toneFmSynth90147.voice0.filterEnvelope.attack
+                })
+
+
+
+
+
+                this.select2 = nx.add('select', {
+                    parent: self.getName() + 'freqGain',
+                    name: self.getName() + 'selectWave2',
+
+                })
+                this.select2.choices = ['either', 'sine', 'square', 'triangle', 'sawtooth']
+
+
+                this.select2.label = 'sice'
+                this.select2.init()
+                this.select2.on('*', function (data) {
+                    console.log(data.text)
+                    window[self.getName()].voice0.oscillator.type=data.text
+
+                    // toneFmSynth90147.voice0.filterEnvelope.attack
+                })
+
+                // nx.onload()
+                //********************************************keyboard
                 var keyboard = new QwertyHancock({
-                    id: "Keyboard",
-                    width: $("#" + contentDiv.id).width(),
-                    height: 10,
+                    id: keyboardDiv.id,
+                    width: $("#" + keyboardDiv.id).width(),
+                    height: $("#" + keyboardDiv.id).height(),
                     octaves: Interface.isMobile ? 1.26 : 3,
                     startNote: "C3",
                     whiteKeyColour: "white",
@@ -99,14 +177,84 @@ pannel.background = 'black';
                 keyboard.keyUp = function (note) {
                     synth.triggerRelease();
                 };
-            });
-        }, 1000);
-        //setup global osc
-        window[self.getName()] = {}
-            //   window[self.getName()].frequency.value = 400; // value in hertz
-            //   window[self.getName()].start();
+
+
+
+
+                var panel = new Interface.Panel({
+                        container: $("#" + controlsDiv.id),
+                        useRelativeSizesAndPositions: true
+                    }) // panel fills page by default, alternatively you can specify boundaries
+
+                var vibratoAmount = new Interface.Slider({
+                        bounds: [0, 0, .3, .8],
+                        label: "vibratoAmount",
+                        max: 100,
+                        onvaluechange: function () {
+                            console.log(this)
+                            synth.vibratoAmount.value = this.value;
+                        }
+                    }
+
+                )
+
+                var vibratoRate = new Interface.Slider({
+                    bounds: [0.3, 0, .3, .8],
+                    label: "vibratoRate",
+                    max: 100,
+                    onvaluechange: function () {
+                        console.log(this)
+                        synth.vibratoRate.value = this.value;
+                    }
+                })
+
+                var harmonicity = new Interface.Slider({
+                        bounds: [0.6, 0, .3, .8],
+                        label: "harmonicity",
+                        max: 100,
+                        onvaluechange: function () {
+                            console.log(this)
+                            synth.harmonicity.value = this.value;
+                        }
+                    }
+
+
+
+
+                )
+
+                panel.add(vibratoAmount, vibratoRate, harmonicity)
+
+
+            })
+
+        }, 1600);
+        window[self.getName()] = {};
+        window[self.getName()] = synth;
+
+        window[self.getName()].down = function (freq, vel) {
+            console.log(freq, 32323223)
+            synth.triggerAttack(freq, vel);
+
+        }
+
+        window[self.getName()].up = function (freq, vel) {
+
+            synth.triggerRelease();
+
+        }
+
+
+
+
+
         return contentDiv
     }
+
+
+
+
+
     connect(device) {
         var self = this
         var deviceName = device.getName();
@@ -123,25 +271,25 @@ pannel.background = 'black';
             IO: 'IN',
             type: 'WebAudioToWebAudio'
         }, {
-            value: oscName + ".frequency",
+            value: oscName + ".voice0.frequency",
             IO: 'IN',
             type: 'WebAudioToWebAudio'
         }, {
-            value: oscName + ".frequency.value",
+            value: oscName + 'freqGain',
             IO: 'IN',
             type: 'ControllerToWebAudio'
         }, {
-            value: oscName + ".frequency.value",
+            value: oscName + 'freqGain',
             IO: 'OUT',
             type: 'ControllerToWebAudio'
         }, {
-            value: oscName + ".detune",
+            value: oscName + 'env',
             IO: 'IN',
-            type: 'WebAudioToWebAudio'
+            type: 'ControllerToWebAudio'
         }, {
-            value: oscName + ".detune",
+            value: oscName + 'env',
             IO: 'OUT',
-            type: 'WebAudioToWebAudio'
+            type: 'ControllerToWebAudio'
         }]
     }
 }
