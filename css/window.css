@@ -8,6 +8,61 @@
        url('Monda-Bold.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(font/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url(font/MaterialIcons-Regular.woff2) format('woff2'),
+       url(font/MaterialIcons-Regular.woff) format('woff'),
+       url(font/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  color: rgb(21, 183, 168);
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+.material-icons:hover{
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+
+.material-icons label{
+    font-family: monospace;
+    font-size: 14px;
+    position: absolute;
+    display: inline-block;
+    width: 130px;
+    height: 40px;
+    line-height: 27px;
+    cursor: pointer;
+    padding-left: 5px;
+}
+
 body {
     /* font-family: monospace; */
     /* font-size: medium; */
@@ -130,28 +185,7 @@ body {
 }
 
 
-.material-icons{
-    clear: both;
-    float: left;
-    cursor: pointer;
-    color: rgb(21, 183, 168) !important;
-    font-size: 40px !important;
-}
-.material-icons:hover{
-    -webkit-filter: invert(100%);
-    filter: invert(100%);
-}
-.material-icons label{
-    font-family: monospace;
-    font-size: 18px;
-    position: absolute;
-    display: inline-block;
-    width: 130px;
-    height: 40px;
-    line-height: 40px;
-    cursor: pointer;
-    padding-left: 5px;
-}
+
  svg path {
   stroke:rgb(174, 129, 255);
 }
