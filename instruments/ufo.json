@@ -24,6 +24,18 @@
             "type": "audioDestination",
             "parentBox": "dashboard1Box",
             "currentView": "sdk"
+        },
+        "osc7517": {
+            "name": "osc7517",
+            "type": "osc",
+            "parentBox": "dashboard1Box",
+            "currentView": "sdk"
+        },
+        "gain35706": {
+            "name": "gain35706",
+            "type": "gain",
+            "parentBox": "dashboard1Box",
+            "currentView": "sdk"
         }
     },
     "connections": {
@@ -38,16 +50,28 @@
         "osc47464OUTcontext.destinationIN": {
             "source": "osc47464OUT",
             "target": "context.destinationIN"
+        },
+        "gain35706OUTosc47464.frequencyIN": {
+            "source": "gain35706OUT",
+            "target": "osc47464.frequencyIN"
+        },
+        "osc7517OUTgain35706IN": {
+            "source": "osc7517OUT",
+            "target": "gain35706IN"
         }
     },
     "patchValues": {
         "knobs": {
-            "osc47464Freq": 0,
-            "osc47464Freq2": 0,
-            "ufo62396conIdFreq": 0
+            "osc47464Freq": 92,
+            "osc47464Freq2": 24,
+            "ufo62396conIdFreq": 0,
+            "osc7517Freq": 4,
+            "osc7517Freq2": 24,
+            "gain35706Value": 960,
+            "gain35706Value02": 1.712
         },
         "files": {
-            "LoadInstrument": ""
+            "LoadInstrument": "ufo.json"
         }
     }
 }
