@@ -77,7 +77,7 @@ class osc extends boxController {
         }, 100);
         //setup global osc
         window[self.getName()] = context.createOscillator();
-        window[self.getName()].frequency.value = 400; // value in hertz
+        window[self.getName()].frequency.value = 432; // value in hertz
         window[self.getName()].start();
         return contentDiv
     }

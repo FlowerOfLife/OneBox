@@ -1,7 +1,8 @@
 'use strict'
-class boxControlls extends boxEntety {
+class boxControlls extends nexusUIelements  {
     constructor() {
         super();
+        console.log('OOOOOOOOOOOOOOOOOOOOOOOOOOO')
     }
     minimiseBoxAction() {
         var self = this;

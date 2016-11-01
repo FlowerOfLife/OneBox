@@ -1,0 +1,53 @@
+{
+    "devices": {
+
+        "ufo62396": {
+            "name": "ufo62396",
+            "type": "ufo",
+            "parentBox": "dashboard1Box",
+            "currentView": "sdk"
+        },
+        "osc47464": {
+            "name": "osc47464",
+            "type": "osc",
+            "parentBox": "dashboard1Box",
+            "currentView": "sdk"
+        },
+        "visualiser34890": {
+            "name": "visualiser34890",
+            "type": "visualiser",
+            "parentBox": "dashboard1Box",
+            "currentView": "sdk"
+        },
+        "audioDestination71153": {
+            "name": "audioDestination71153",
+            "type": "audioDestination",
+            "parentBox": "dashboard1Box",
+            "currentView": "sdk"
+        }
+    },
+    "connections": {
+        "visualiser34890OUTosc47464IN": {
+            "source": "visualiser34890OUT",
+            "target": "osc47464IN"
+        },
+        "ufo62396OUTosc47464.frequency.valueIN": {
+            "source": "ufo62396OUT",
+            "target": "osc47464.frequency.valueIN"
+        },
+        "osc47464OUTcontext.destinationIN": {
+            "source": "osc47464OUT",
+            "target": "context.destinationIN"
+        }
+    },
+    "patchValues": {
+        "knobs": {
+            "osc47464Freq": 0,
+            "osc47464Freq2": 0,
+            "ufo62396conIdFreq": 0
+        },
+        "files": {
+            "LoadInstrument": ""
+        }
+    }
+}
