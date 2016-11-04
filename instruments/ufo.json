@@ -4,36 +4,48 @@
         "ufo62396": {
             "name": "ufo62396",
             "type": "ufo",
+            "sdkTop": "179px",
+            "sdkLeft": "365px",
             "parentBox": "dashboard1Box",
             "currentView": "sdk"
         },
         "osc47464": {
             "name": "osc47464",
             "type": "osc",
+            "sdkTop": "651px",
+            "sdkLeft": "27px",
             "parentBox": "dashboard1Box",
             "currentView": "sdk"
         },
         "visualiser34890": {
             "name": "visualiser34890",
             "type": "visualiser",
+            "sdkTop": "86px",
+            "sdkLeft": "59px",
             "parentBox": "dashboard1Box",
             "currentView": "sdk"
         },
         "audioDestination71153": {
             "name": "audioDestination71153",
             "type": "audioDestination",
+            "sdkTop": "583px",
+            "sdkLeft": "225px",
             "parentBox": "dashboard1Box",
             "currentView": "sdk"
         },
         "osc7517": {
             "name": "osc7517",
             "type": "osc",
+            "sdkTop": "320px",
+            "sdkLeft": "58px",
             "parentBox": "dashboard1Box",
             "currentView": "sdk"
         },
         "gain35706": {
             "name": "gain35706",
             "type": "gain",
+            "sdkTop": "53px",
+            "sdkLeft": "589px",
             "parentBox": "dashboard1Box",
             "currentView": "sdk"
         }
@@ -62,13 +74,14 @@
     },
     "patchValues": {
         "knobs": {
-            "osc47464Freq": 92,
-            "osc47464Freq2": 24,
+            "osc47464Freq": 456,
+            "osc47464Freq2": 1.92,
+            "osc7517Freq": 956,
+            "osc7517Freq2": 10.176,
+            "gain35706Value": 464,
+            "gain35706Value02": 1.712,
             "ufo62396conIdFreq": 0,
-            "osc7517Freq": 4,
-            "osc7517Freq2": 24,
-            "gain35706Value": 960,
-            "gain35706Value02": 1.712
+            "dial8": 0
         },
         "files": {
             "LoadInstrument": "ufo.json"

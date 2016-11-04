@@ -7,8 +7,6 @@ class toneMonoSynth extends boxController {
         this.setType('toneFmSynth')
         this.setConnectors(this.oscConnectors(name))
         this.setContent(this.oscContent(name))
-
-
     }
     oscContent(name) {
         var self = this
@@ -65,7 +63,6 @@ class toneMonoSynth extends boxController {
  self.nexusADSR(self.getName() + 'osc1Env', self.getName() + "Osc", window[self.getName()].envelope)
  document.getElementById(self.getName() + "Osc").appendChild(document.createElement('br'));
  self.nexusSelectOscWave(self.getName() + 'selectWave1',self.getName() + "Osc", window[self.getName()].oscillator);
- 
  self.nexusKeyboard(synth, keyboardDiv.id);
  self.filterControlls(self.getName() + 'osc1FilterEnv', self.getName() + 'Envelop', window[self.getName()].filter)
 

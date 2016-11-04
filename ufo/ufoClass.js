@@ -67,7 +67,7 @@ class ufoClass extends boxController {
 
         var types = {
             square: function (n) {
-                return (((n + 1) % 2) ? 0 : 1) / n;
+                return (((n + 1) % Math.floor((Math.random() * 10) + 1)) ? 0 : 1) / n;
             },
 
             square2: function (n) {

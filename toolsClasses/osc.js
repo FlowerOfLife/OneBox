@@ -39,17 +39,17 @@ class osc extends boxController {
             }
             //CONTROLS
         setTimeout(function () {
-            this.freqValue = nx.add('dial', {
+            var freqValue = nx.add('dial', {
                 parent: self.getName() + ".frequency.value",
                 name: self.getName() + 'Freq',
                 w: 70,
                 h: 70,
             })
 
-            this.freqValue.min = 0
-            this.freqValue.max = 1000
-            this.freqValue.label = '1-1000'
-            this.freqValue.on('*', function (data) {
+            freqValue.min = 0
+            freqValue.max = 1000
+            freqValue.label = '1-1000'
+            freqValue.on('*', function (data) {
                 console.log(data, window[self.getName() + 'playRate'])
                     // window[self.getName()+'playRate'].value = data.value
                 window[self.getName()].frequency.value = data.value;
