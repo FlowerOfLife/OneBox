@@ -3,9 +3,57 @@ class myMenu {
     constructor() {
         // this.menuObject()
     }
+
+
+
+
     menuObject() {
-        var menuItems = ['osc', 'dashboard', 'visualiser', 'gain', 'knob', 'keyboard', 'mml','audioDestination','envelope','piano','simpleSequencer','drums','filter','buffer','midiPlayer','lineSequencer','polyOsc','toneFmSynth','monoSequenecer','toneMonoSynth','ufo','toneOscilator','omniOscillator'];
-        var menuItemsIcons = ['album', 'add_to_queue', 'gradient', 'data_usage', 'av_timer', 'keyboard', 'business','volume_up','subtitles','view_column','dialpad','view_module','format_line_spacing','assessment','queue_music','view_column','view_column','view_column','view_column','view_column','view_column','view_column','view_column'];
+        var menuItems = ["dashboard","osc",
+"polyOsc",
+
+"audioDestination",
+"visualiser",
+"audioDestination",
+"audioGain",
+"knob",
+"piano",
+"envelope",
+"simpleSequencer",
+"mml",
+"drums",
+"filter",
+"buffer",
+"midi",
+"lineSequencer",
+"toneFmSynth",
+"monoSequenecer",
+"toneMonoSynth",
+
+"toneOscilator",
+"toneOmniOscillator",
+"toneSequenecer"];
+        var menuItemsIcons = ['album', 'add_to_queue', 'gradient', 'data_usage', 
+        'av_timer', 'keyboard', 'business','volume_up','subtitles','view_column','dialpad','view_module','format_line_spacing','assessment',
+        'queue_music','view_column','view_column','view_column','view_column','view_column','view_column','view_column','view_column','view_column'];
+
+
+for(var tool in menuItems){
+addScript( "toolsClasses/"+menuItems[tool]+".js" )
+
+}
+
+function addScript( src ) {
+  var s = document.createElement( 'script' );
+  s.setAttribute( 'src', src );
+  document.body.appendChild( s );
+}
+
+
+
+
+console.log(document.head,3333333333)
+
+
         var dashboardMenu = document.createElement('div');
         //div menu
         var menuDiv = document.createElement('div');

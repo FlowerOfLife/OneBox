@@ -30,9 +30,11 @@
 
 
 
-
-<!--**************************** tools************************************************* -->
 <script src="manageClasses/menu.js"></script>
+
+<script src="ufo/ufoClass.js"></script>
+<!--**************************** tools************************************************* 
+
 
 <script src="toolsClasses/osc.js"></script>
 
@@ -60,11 +62,12 @@
 <script src="toolsClasses/toneFmSynth.js"></script>
 <script src="toolsClasses/monoSequenecer.js"></script>
 <script src="toolsClasses/toneMonoSynth.js"></script>
-<script src="ufo/ufoClass.js"></script>
-<script src="toolsClasses/ufo.js"></script>
+
+
 <script src="toolsClasses/toneOscilator.js"></script>
 <script src="toolsClasses/toneOmniOscillator.js"></script>
-
+<script src="toolsClasses/toneSequenecer.js"></script>
+-->
 <!--**************************** tools************************************************* -->
 
 
@@ -110,8 +113,11 @@
 <!--  <div id='diagramContainer'></div>-->
 </body>
 <script>
+ 
     var context = new AudioContext()
     $(document).ready(function () {
+           var menuClass = new myMenu();
+menuClass.menuObject();
         //init Obeject
         jsPlumb.Defaults.Container = $("body"); // <-- Provide default conatiner
         jsPlumb.ready(function () {
@@ -139,7 +145,7 @@ nx.labelSize(40);
     myDashboard.createDashboard('mydash');
     */
 
-    var myDashboard = new dashboard();
+ 
 
 
 //*****************************************save*************************
@@ -219,8 +225,12 @@ function downloadJsonFile(data, filename, type) {
             sl.loadProject(json)
         });
     } else {
-        //Load default preset        
-        sl.loadProject(loadJson)
+        //Load default preset     
+        setTimeout(function(){
+               var myDashboard = new dashboard();
+sl.loadProject(loadJson)
+        },3000)   
+        
 
     }
 
