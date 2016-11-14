@@ -37,13 +37,13 @@ class toneSequenecer extends boxController {
         var matrix1 = nx.add('matrix', {
             parent: name + 'id',
             w: 500,
-            h: 100
+            h: 40
         })
         //console.log(matr)
 
         console.log('hereeeeeeeeeeeeeeeee')
         matrix1.col = 16;
-        matrix1.row = 12;
+        matrix1.row = 4;
 
         matrix1.init();
 
@@ -59,21 +59,27 @@ class toneSequenecer extends boxController {
         }).toMaster();
 
 
+
+
+
+
+
+
+
+
+
+
         var noteNames = ["F#", "E", "C#", "A"];
 
         var loop = new Tone.Sequence(function (time, col) {
-           
+            console.log(col)
             var column = matrix1.matrix[col];
-              matrix1.place=(col);
-              matrix1.init()
-            for (var i = 0; i < 12; i++) {
+            for (var i = 0; i < 4; i++) {
                 if (column[i] === 1) {
                     //slightly randomized velocities
                     var vel = Math.random() * 0.5 + 0.5;
-                    self.keyDown(col,i);
-                 
-                   // self.mod1keyDown(i)
-                    //  keys.start(noteNames[i], time, 0, "32n", 0, vel);
+                      self.keyDown(432)
+                  //  keys.start(noteNames[i], time, 0, "32n", 0, vel);
                 }
             }
         }, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "16n");
@@ -120,33 +126,35 @@ class toneSequenecer extends boxController {
             Tone.Transport.stop();
             loop.stop();
         }
-        //toneSequenecer83542mod1.connect(toneMonoSynth22415.frequency)
-        window[self.getName() + "mod1"] = {}
-        window[self.getName() + "mod1"].connect = function (envelop) {
-            self.mod1keyDown = function (mod1) {
-               envelop =  mod1 
-            };
-        }
+
+
         window[self.getName() + "upDown"] = {}
         window[self.getName() + "upDown"].connect = function (envelop) {
             console.log(self.keyboard)
 
-            self.keyDown = function (mod1,i) {
+            self.keyDown = function (frequency) {
 
-                console.log(mod1,multisliderFreq,'PAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa')
-                envelop.down(i*100)
+                console.log(frequency)
+                envelop.down(frequency)
                 setTimeout(function () {
-                    envelop.up(multisliderFreq.val[mod1]*1000)
-                }, 200)
+                    envelop.up(frequency)
+                }, 100)
             };
 
-            self.keyUp = function () {
+            self.keyUp = function (frequency) {
                 console.log(1111111111)
+                if (frequency) {
+                    self.osc.frequency.value = frequency
+                }
 
-
-                envelop.up(multisliderFreq.val[mod1]*1000)
-                console.log()
+                envelop.up(frequency)
+                console.log(frequency)
             };
+
+
+
+
+
         }
 
         function play(freq, val) {
@@ -173,13 +181,7 @@ class toneSequenecer extends boxController {
             value: oscName + "upDown",
             IO: 'OUT',
             type: 'WebAudioToWebAudio'
-        },
-        {
-            value: oscName + "mod1",
-            IO: 'OUT',
-            type: 'WebAudioToWebAudio'
-        }
-        ]
+        }]
     }
 }
 

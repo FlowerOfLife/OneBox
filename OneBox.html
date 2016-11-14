@@ -113,11 +113,14 @@
 <!--  <div id='diagramContainer'></div>-->
 </body>
 <script>
- 
+         var menuClass = new myMenu();
+menuClass.loadAllToolsScripts();
     var context = new AudioContext()
     $(document).ready(function () {
-           var menuClass = new myMenu();
-menuClass.menuObject();
+           setTimeout(function(){
+            //   var myDashboard = new dashboard();
+sl.loadProject(loadJson)
+        },1000)   
         //init Obeject
         jsPlumb.Defaults.Container = $("body"); // <-- Provide default conatiner
         jsPlumb.ready(function () {
@@ -226,10 +229,7 @@ function downloadJsonFile(data, filename, type) {
         });
     } else {
         //Load default preset     
-        setTimeout(function(){
-               var myDashboard = new dashboard();
-sl.loadProject(loadJson)
-        },3000)   
+
         
 
     }

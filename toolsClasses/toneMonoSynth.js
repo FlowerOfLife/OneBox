@@ -105,7 +105,18 @@ class toneMonoSynth extends boxController {
         window[self.getName()].connect(window[deviceName])
     }
     oscConnectors(oscName) {
-        return [{
+        return [
+             {
+          value: oscName + '.frequency.value',
+            IO: 'IN',
+            type: 'IN'
+        }, {
+          value: oscName + '.frequency.value',
+            IO: 'OUT',
+            type: 'ControllerToWebAudio'
+        },
+            
+            {
             value: oscName + '.output',
             IO: 'OUT',
             type: 'WebAudioToWebAudio'
@@ -132,6 +143,10 @@ class toneMonoSynth extends boxController {
         }, {
             value: oscName + 'env',
             IO: 'OUT',
+            type: 'ControllerToWebAudio'
+        }, {
+            value: oscName + '.filter.Q',
+            IO: 'IN',
             type: 'ControllerToWebAudio'
         }]
     }

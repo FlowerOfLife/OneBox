@@ -1,0 +1,37 @@
+{
+    "devices": {
+ 
+        "toneSequenecer15537": {
+            "name": "toneSequenecer15537",
+            "type": "toneSequenecer",
+            "parentBox": "dashboard1Box",
+            "currentView": "sdk"
+        },
+        "toneMonoSynth32653": {
+            "name": "toneMonoSynth32653",
+            "type": "toneMonoSynth",
+            "parentBox": "dashboard1Box",
+            "currentView": "sdk"
+        }
+    },
+    "connections": {
+        "toneSequenecer15537upDownOUTtoneMonoSynth32653IN": {
+            "source": "toneSequenecer15537upDownOUT",
+            "target": "toneMonoSynth32653IN"
+        },
+        "toneSequenecer15537mod1OUTtoneMonoSynth32653.frequencyIN": {
+            "source": "toneSequenecer15537mod1OUT",
+            "target": "toneMonoSynth32653.frequencyIN"
+        }
+    },
+    "patchValues": {
+        "knobs": {
+            "toneMonoSynth32653osc1FilterEnvFilterFrequency": 0,
+            "toneMonoSynth32653osc1FilterEnvfilterQ": 0,
+            "toneMonoSynth32653osc1FilterEnvdetune": 0
+        },
+        "files": {
+            "LoadInstrument": ""
+        }
+    }
+}
